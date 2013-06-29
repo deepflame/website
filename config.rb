@@ -41,6 +41,13 @@ activate :livereload
 # enable blog support
 activate :blog
 
+# deploy to Github Pages
+activate :deploy do |deploy|
+  deploy.method = :git
+  deploy.remote = "origin"
+  deploy.branch = "gh-pages"
+end
+
 # Methods defined in the helpers block are available in templates
 # helpers do
 #   def some_helper
