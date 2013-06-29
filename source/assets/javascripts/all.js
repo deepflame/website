@@ -19,6 +19,5 @@
 //= require foundation/foundation.interchange
 //= require foundation/foundation.placeholder
 //
-//= require_tree .
 
 $(function(){ $(document).foundation(); });
