@@ -3,3 +3,13 @@
  *= require foundation_and_overrides
  *= require_self
  */
+
+#panel {
+	background-color: lightgrey;
+	margin-top: 30px;
+
+	img {
+		padding-top: 15px;
+	}
+}
+
