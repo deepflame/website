@@ -1,4 +1,3 @@
-require 'zurb-foundation'
 
 ###
 # Compass
