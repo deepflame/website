@@ -3,8 +3,8 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
   <title><%= current_page.data.title || "Andreas Böhrnsen" %></title>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
@@ -13,9 +13,38 @@
   <%= stylesheet_link_tag "all" %>
 
   <script src="https://code.jquery.com/jquery.js"></script>
+</head>
+
+<body class="<%= page_classes %>">
+
+  <div class="container">
+
+    <div class="page-header">
+      <ul class="nav nav-pills pull-right">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <h1>Andreas Böhrnsen</h1>
+      <p class="lead text-muted">Consulting and Development</p>
+    </div>
+
+    <%= yield %>
+
+    <div class="footer">
+		<p class="pull-left">&copy; Andreas Böhrnsen 2013</p>
+		<p class="pull-right">Last updated: <%= Date.today %></p>
+    </div>
+
+  </div> <!-- /container -->
+
+
+  <% javascript_include_tag "holder" %>
+  <% javascript_include_tag "all" %>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
   <!-- Google Analytics, use Piwik later -->
-  <script>
+  <script type="text/javascript">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -23,14 +52,6 @@
 
   ga('create', 'UA-42927977-1', 'boehrnsen.de');
   ga('send', 'pageview');
-
   </script>
-</head>
-
-<body class="<%= page_classes %>">
-  <!-- body content here -->
-  <%= yield %>
-
-  <%= javascript_include_tag "all" %>
 </body>
 </html>

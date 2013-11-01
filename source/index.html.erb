@@ -2,33 +2,7 @@
 title: Andreas Böhrnsen 
 ---
 
-<div class="row">
-	<div id ="panel" class="large-11 large-centered columns">
-
-		<div class="row">
-			<div class="small-3 columns">
-				<figure>
-					<%= image_tag "avatar.jpg", width: 150 %>
-					<figcaption>Andreas Böhrnsen</figcaption>
-				</figure>
-			</div>
-			<div class="small-9 columns">
-				<h1>Hi!</h1>
-				<h2 class="subheader">See you soon in Berlin Germany</h1>
-			</div>
-		</div>
-
-		<div class="row">
-			<div id="links" class="large-5 large-centered columns">
-				<ul class="inline-list">
-					<li><a href="https://twitter.com/deepflame">Twitter</a></li>
-					<li><a href="https://github.com/deepflame">Github</a></li>
-					<li><a href="http://www.flickr.com/photos/87288377@N00/">Flickr</a></li>
-					<li><a href="http://500px.com/deepflame">500px</a></li>
-				</ul>
-			</div>
-		</div>
-
-	</div>
-</div>
-
+<%= image_tag 'guitar-1400x600.jpg', class: "img-responsive", width: 700, height: 300 %>
+<%= partial "about" %>
+<%= partial "projects" %>
+<%= partial "social_links" %>
