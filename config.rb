@@ -42,11 +42,23 @@ activate :livereload
 # enable blog support
 activate :blog
 
-# deploy to Github Pages
-activate :deploy do |deploy|
-  deploy.method = :git
-  deploy.remote = "origin"
-  deploy.branch = "gh-pages"
+# deploy to AWS
+activate :s3_sync do |s3_sync|
+  s3_sync.bucket                = ENV['AWS_BUCKET']
+  s3_sync.region                = ENV['AWS_REGION']
+  s3_sync.aws_access_key_id     = ENV['AWS_ACCESS']
+  s3_sync.aws_secret_access_key = ENV['AWS_SECRET']
+  s3_sync.delete                = false
+  s3_sync.after_build           = true 
+  s3_sync.prefer_gzip           = true
+end
+
+activate :cloudfront do |cf|
+  cf.access_key_id     = ENV['AWS_ACCESS']
+  cf.secret_access_key = ENV['AWS_SECRET']
+  cf.distribution_id   = ENV['AWS_DISTID']
+  cf.filter            = /\.html$/i  # default is /.*/
+  cf.after_build       = true
 end
 
 # Methods defined in the helpers block are available in templates
