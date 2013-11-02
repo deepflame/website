@@ -64,7 +64,13 @@ h2, h3, h4 {
   }
 }
 
+/* reduce top spacing to image */
+#main-image + div {
+  margin-top: 10px;
+}
+
 #about {
+
   span.dev {
     color: #428bca;
     font-weight: bold;
