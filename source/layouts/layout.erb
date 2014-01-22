@@ -32,8 +32,11 @@
   <%= yield %>
 
   <div class="footer">
-    <p class="pull-left">&copy; Andreas Böhrnsen 2013</p>
-    <p class="pull-right">Last updated: <%= Date.today %></p>
+    <p class="pull-left">&copy; Andreas Böhrnsen 2013 - 2014</p>
+    <p class="pull-right">
+      <%= link_to "Imprint / Impressum", "imprint.html" %> | 
+      <%= link_to "Privacy Statement", "privacy.html" %>
+    </p>
   </div>
 
 </div> <!-- /container -->
