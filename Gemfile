@@ -6,6 +6,9 @@ gem "middleman-blog"
 # reload files automatically during development
 gem "middleman-livereload"
 
+# use .env file
+gem "middleman-dotenv"
+
 # deploy to S3
 gem "middleman-s3_sync"
 gem "unf" # removes warning loading s3_sync

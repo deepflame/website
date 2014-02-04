@@ -41,6 +41,8 @@ activate :livereload
 
 # enable blog support
 activate :blog
+# load dotenv file
+activate :dotenv
 
 # deploy to AWS
 activate :s3_sync do |s3_sync|
