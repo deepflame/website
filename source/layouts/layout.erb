@@ -27,7 +27,7 @@
 
 <div class="container">
 
-  <div class="page-header">
+  <div class="header">
     <ul class="nav nav-pills pull-right">
       <li><%= link_to "About", "/index.html#about" %></li>
       <li><%= link_to "Projects", "/index.html#projects" %></li>
@@ -38,7 +38,9 @@
     <p class="lead text-muted">Consulting and Development</p>
   </div>
 
+  <div class="row content">
   <%= yield %>
+  </div>
 
   <div class="footer">
     <p class="pull-left">&copy; Andreas Böhrnsen 2013 - 2014</p>
