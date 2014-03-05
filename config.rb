@@ -29,7 +29,6 @@ activate :blog do |blog|
   # blog.page_link = "page/{num}"
 end
 
-page "/blog/*", layout: :blog
 page "/blog/feed.xml", layout: false
 
 activate :syntax
