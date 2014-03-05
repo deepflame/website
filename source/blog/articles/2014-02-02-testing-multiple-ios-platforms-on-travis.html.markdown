@@ -16,7 +16,7 @@ The best way is to write your own custom script config to run xctool.
 
 In your `.travis.ci` file add for example:
 
-```
+```yml
 script:
   - xctool test -test-sdk iphonesimulator7.0 -simulator ipad
 ```
@@ -27,7 +27,7 @@ Additional xctool options can be written into an external file called `.xctool-a
 
 Here is an example. It is just a JSON array with the parameters:
 
-```
+```json
 [
   "-workspace", "iOpenSongs.xcworkspace",
   "-scheme", "Beta",
@@ -43,7 +43,7 @@ To get to know more about xctool you may consult [the documentation][2].
 
 To find that out you can look into your test log. You will find a line that says
 
-```
+```shell
 $ xcodebuild -version -sdk
 ```
 
