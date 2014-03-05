@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 gem "middleman"
 gem "middleman-blog"
+gem "middleman-syntax"
+
+gem "redcarpet"
 
 # reload files automatically during development
 gem "middleman-livereload"
