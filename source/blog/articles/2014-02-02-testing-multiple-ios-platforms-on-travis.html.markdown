@@ -55,7 +55,7 @@ iPhoneSimulator5.0.sdk - Simulator - iOS 5.0 (iphonesimulator5.0)
 ```
 
 The correct strings are found in round brackets.
-The current list is here:
+The current list is:
 
 - macosx10.8
 - macosx10.9
@@ -67,7 +67,7 @@ The current list is here:
 - iphonesimulator6.1
 - iphonesimulator7.0
 
-This makes it possible to test from iOS 5.0 to 7.0. The "iphoneos*" SDKs are there if you want to build your app. This is not meant for testing and you cannot test directly on the device.  
+This makes it possible to test on the "iphonesimulator" from iOS 5.0 to 7.0. The "iphoneos*" SDKs can be used if you want to build your apps for production. This is not meant for testing and you cannot test directly on the device.  
 As you can see there are also SDKs for OSX if this is useful for you.
 
 ## Testing on multiple SDKs
