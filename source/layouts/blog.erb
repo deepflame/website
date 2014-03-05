@@ -1,7 +1,10 @@
 <% wrap_layout :layout do %>
     
-    <div class="col-sm-8">
-      <%= yield %>
+    <div class="col-sm-12">
+      <div class="article">
+        <h1><%= current_article.title %></h1>
+        <%= yield %>
+      </div>
       <div id="disqus_thread"></div>
     </div>
     
@@ -21,5 +24,4 @@
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-
- <% end %>
+<% end %>
