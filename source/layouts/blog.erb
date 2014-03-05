@@ -1,12 +1,10 @@
 <% wrap_layout :layout do %>
     
-    <div class="col-sm-12">
-      <div class="article">
-        <h1><%= current_article.title %></h1>
-        <%= yield %>
-      </div>
-      <div id="disqus_thread"></div>
+    <div class="article">
+      <h1><%= current_article.title %></h1>
+      <%= yield %>
     </div>
+    <div id="disqus_thread"></div>
     
     <!-- Disqus powered comments -->
     <script type="text/javascript">
