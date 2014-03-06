@@ -1,27 +1,20 @@
----
-pageable: true
-per_page: 10
----
-<% if paginate && num_pages > 1 %>
-  <p>Page <%= page_number %> of <%= num_pages %></p>
+<h2>Articles</h2>
 
-  <% if prev_page %>
-    <p><%= link_to 'Previous page', prev_page %></p>
-  <% end %>
+<% blog.articles.each do |article| %>
+<p class="">
+  <h3 class=""><%= link_to article.title, article %></h3>
+
+  <span class="text-muted"><%= article.date.strftime('%b. %e %Y') %></span>
+
+  <div class="tag-list">
+    <ul class="list-inline">
+    <% article.tags.each do |tag| %>
+      <li><%= link_to tag, tag_path(tag) %></li>
+    <% end %>
+    </ul>
+  </div>
+
+  <%= article.summary %>
+</p>
 <% end %>
 
-<% page_articles.each_with_index do |article, i| %>
-  <div class="blog-post">
-    <h2 class="blog-post-title"><%= article.title %></h2>
-    <p class="blog-post-meta"><%= article.date.strftime('%b %e') %> by Andreas Böhrnsen</p>
-    <%= article.summary %>
-    <%= link_to "Read more", article %>
-    <%# article.body %>
-  </div> <!-- blog-post -->
-<% end %>
-
-<% if paginate %>
-  <% if next_page %>
-    <p><%= link_to 'Next page', next_page %></p>
-  <% end %>
-<% end %>
