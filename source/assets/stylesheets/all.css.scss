@@ -112,4 +112,26 @@ h2, h3, h4 {
     border: 1px solid #ccc;
     border-radius: 4px;
   }
+
+}
+
+.blog_index {
+
+  .tag-list {
+    display: inline-block;
+
+    &:before {
+      content: "•";
+      padding: 3px;
+    }
+
+    ul {
+      display: inline-block;
+    }
+
+    li + li::before {
+      content: "";
+    }
+  }
+
 }
