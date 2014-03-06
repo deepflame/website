@@ -7,6 +7,8 @@ tags: ios, testing, travisci
 Ever wanted to test automatically on multiple iOS platforms and devices on Travis CI at the same time?  
 Here is how to do it.
 
+READMORE
+
 ## Intro to xctool
 
 Travis uses the xctool internally for building and testing the apps. Traditionally it will be executed like this: `xctool build test`.
