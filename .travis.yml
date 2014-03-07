@@ -1,5 +1,9 @@
 language: ruby
 rvm:
   - 1.9.3
+env:
+  global:
+    - secure: SF3Q9vJYKEyZiZ3UOVrcEG2jXrnEhwTlVs271VR6MvspNa2/UU/tU5TlO7DnEKCt/UgQDvyjeI77dwYJE8KgECvNyrb9F8JCIeBXfaqKeNrY7Ig3pVc77diQ85RnDHm6xI+Yqr3RWr9zNh1MHkcZPOmueqyKw1f+Qc6GLZZxsR4=
+    - secure: LTHCGVL2eI4iRs/xup8S/eX5JajfMF4QEbL2np7bw5GCHZlU+WGv9YHBmnIyptzCOpnoBq0d0TKDmDeshTwtjuQqgGVNANDSBPzZJF8e2XiCY7AXxFklLjXiOEM9+Rtf3h6I2S2ikY+EnFXG+/tg8fZpG0P0i59D+nU9lwY5IHc=
 script:
   - bundle exec middleman build
