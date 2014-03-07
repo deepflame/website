@@ -74,9 +74,6 @@ activate :directory_indexes
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
 
-# Reload the browser automatically whenever files change
-activate :livereload
-
 # load dotenv file
 activate :dotenv
 
@@ -111,6 +108,12 @@ set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'
 
 set :images_dir, 'assets/images'
+
+# Development-specific configuration
+configure :development do
+  # Reload the browser automatically whenever files change
+  activate :livereload
+end
 
 # Build-specific configuration
 configure :build do
