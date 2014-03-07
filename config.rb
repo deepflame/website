@@ -8,13 +8,13 @@ activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
   blog.prefix = "blog"
 
-  # blog.permalink = "{year}/{month}/{day}/{title}.html"
-  # Matcher for blog source files
-  blog.sources = "articles/{year}-{month}-{day}-{title}.html"
-  # blog.taglink = "tags/{tag}.html"
+  blog.permalink = "{year}/{month}/{title}.html"
+  #blog.permalink = "{year}/{month}/{day}/{title}.html"
+  blog.sources = "articles/{year}-{month}-{day}-{title}.html" # Matcher for blog source files
   blog.layout = "blog"
   blog.summary_separator = /(READMORE)/
   blog.summary_length = 250
+  # blog.taglink = "tags/{tag}.html"
   # blog.year_link = "{year}.html"
   # blog.month_link = "{year}/{month}.html"
   # blog.day_link = "{year}/{month}/{day}.html"
@@ -24,7 +24,7 @@ activate :blog do |blog|
   blog.calendar_template = "blog/calendar.html"
 
   # Enable pagination
-  blog.paginate = true
+  blog.paginate = false
   blog.per_page = 10
   blog.page_link = "page/{num}"
 end
@@ -68,6 +68,8 @@ set :markdown, :fenced_code_blocks => true, :smartypants => true
 ###
 # Helpers
 ###
+
+activate :directory_indexes
 
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
