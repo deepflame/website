@@ -16,7 +16,7 @@ Travis uses the xctool internally for building and testing the apps. Traditional
 
 The best way is to write your own custom script config to run xctool.
 
-In your `.travis.ci` file add for example:
+In your `.travis.yml` file add for example:
 
 ```yml
 script:
