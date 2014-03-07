@@ -113,6 +113,11 @@ h2, h3, h4 {
     border-radius: 4px;
   }
 
+  pre.highlight {
+    overflow: auto;
+    word-wrap: normal;
+  }
+
 }
 
 .blog_index {
