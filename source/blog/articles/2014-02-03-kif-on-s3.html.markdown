@@ -1,0 +1,129 @@
+---
+title: Don't be blind when KIF fails on Travis
+author: Andreas Böhrnsen
+date: 2014-02-03 18:16 UTC
+tags: ios, testing, travisci, aws
+published: false
+---
+
+Do you test your iOS app? You should! The best way to test it is as a user would interact with it. So you test the full stack. KIF is great for that. It integrated nicely into XCode and it can even create screenshots when it fails.
+But how to get them out when we use Travis? Here is how.
+
+READMORE
+
+## Introduction
+
+Travis-CI is great when it comes to continuous integration of OpenSource software. It integrates nicely with Github and is easy to setup.  
+In April 2013 they introduced automated [testing for Mac and iOS][1]. They did not stop there and were adding support for newer SDKs as well. Currently they support SDKs for iOS 5, 6, 7.
+
+But how to test iOS apps? There are a lot of ways and [frameworks][2] out there. I wanted to test the iOS app as a user would use it.  
+So acceptance testing as I knew it from web development was the way to go.
+After a short detour to bewoken I settled with KIF. In the new 2.0 version it features a cleaner API and nice XCode integration.  
+I found the framework I wanted.
+
+Setting up KIF 2.0 on travis was straight forward following their documentation. However the Travis build always failed. Why? It was running perfectly fine on my local machine.
+Trying different settings for xctool (the tool from Facebook to build and test Xcode projects on the command line) did not work either. I was groping in the dark, nothing to be seen. No idea if even the simulator came up and what it showed.
+
+Wouldn't it be great to have screenshots of when the test failed?
+
+
+http://blog.travis-ci.com/introducing-mac-ios-rubymotion-testing/
+
+
+This article assumes that you have a basic understanding of continuous integration with Travis CI, automated testing with KIF 2.0 and Amazon S3 for file hosting.
+You will find good resources on the internet to get started on those topics. So you may consult Google to fill in the gaps.
+
+
+Would there just be a way to see a screenshot of where it hung.
+And there is!
+
+Here is a solution I came up with to upload screenshots of the simulator to S3 when the test failed.
+Why S3? It seemed to me to be the easiest solution. Please suggest other ways.
+
+## Setting up KIF
+
+Setting up KIF is nicely described in the KIF docs. I do not want to add to this here. You may just read it on the KIF website.  
+The only important thing to mention is that we have to use the `:head` version.
+
+The current version ... does not support taking screenshots yet.
+
+```ruby
+platform :ios, '5.1'
+
+# Testing
+target 'Acceptance Tests', :exclusive => true do
+  pod 'KIF', :head
+end
+```
+
+`.travis.yml`
+
+```yml
+language: objective-c
+rvm:
+  - 1.9.3
+```
+
+This would already install your pods and run all tests.
+
+## TLDR
+
+The "magic" lies in the Travis configuration.
+
+Here is the whole file I came up with:
+
+`.travis.yml`
+
+```yml
+language: objective-c
+
+rvm:
+  - 1.9.3
+
+env:
+  global:
+    - KIF_SCREENSHOTS="${TRAVIS_BUILD_DIR}/Screenshots/${TRAVIS_BUILD_NUMBER}"
+    - secure: N0tEZ7I8F...
+
+before_install:
+  - brew update
+  - brew install s3cmd
+
+before_script:
+  - mkdir -p $KIF_SCREENSHOTS
+
+after_failure:
+  - echo "secret_key = $AWS_SECRET" >> .s3cfg
+  - s3cmd put --guess-mime-type --config=.s3cfg $KIF_SCREENSHOTS/* s3://travis-iopensongs/$TRAVIS_JOB_NUMBER/
+```
+
+### Important things to note:
+
+- use Ruby 1.9.3 in the rvm part. The default Ruby segfaults when running `pod` for CocoaPods.
+- use KIF > version 2.0.0 or head. Version 2.0.0 does not support taking screenshots.
+- enable taking screenshots with setting the KIF_SCREENSHOTS path
+- use after_failure hook to upload the screenshots to S3
+
+## Better secure your AWS secret key
+
+.s3cfg
+
+	[default]
+	access_key = AKIAJQNTDRMHAJHFSKFA
+
+add the AWS Secret Key
+
+	travis encrypt AWS_SECRET=fKJF1yXHjLwQ/9t77Sm9Z3k62oBiEmKc3HrMsVwf --add
+
+how it looks in Travis Log
+
+```shell
+$ export KIF_SCREENSHOTS="${TRAVIS_BUILD_DIR}/Screenshots/${TRAVIS_BUILD_NUMBER}"
+$ export AWS_SECRET=[secure]
+$ export TEST_SDK=iphonesimulator5.1
+$ export SIMULATOR=ipad
+```
+
+  [1]: http://blog.travis-ci.com/introducing-mac-ios-rubymotion-testing/ "Introducing Mac, iOS and RubyMotion Testing on Travis CI"
+  [2]: http://stackoverflow.com/questions/4114083/ios-tests-specs-tdd-bdd-and-integration-acceptance-testing
+
