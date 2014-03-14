@@ -4,6 +4,16 @@
     <h1><%= current_article.title %></h1>
     <%= yield %>
   </div>
+
+  <ul class="pager">
+    <li class="previous">
+      <%= link_to("&larr; " + current_article.previous_article.title, current_article.previous_article) if current_article.previous_article %>
+    </li>
+    <li class="next">
+      <%= link_to(current_article.next_article.title + " &rarr;", current_article.next_article) if current_article.next_article %>
+    </li>
+  </ul>
+
   <div id="disqus_thread"></div>
 
   <% if build? %>
