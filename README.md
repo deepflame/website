@@ -11,4 +11,4 @@ Deployed on S3 with Cloudfront caching.
 
 ## License
 
-MIT
+[MIT](http://opensource.org/licenses/MIT) © [Andeas Böhrnsen](http://andreas.boehrnsen.de)
