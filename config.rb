@@ -131,4 +131,6 @@ configure :build do
 
   # use a different image path
   # set :http_path, "/Content/images/"
+
+  ignore '**/LICENSE'
 end
