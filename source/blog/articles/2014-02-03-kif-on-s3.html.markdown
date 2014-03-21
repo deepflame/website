@@ -42,21 +42,20 @@ Why S3? It seemed to me to be the easiest solution. Please suggest other ways.
 
 ## Setting up KIF
 
-Setting up KIF is nicely described in the KIF docs. I do not want to add to this here. You may just read it on the KIF website.  
-The only important thing to mention is that we have to use the `:head` version.
+Setting up KIF is nicely described in the [KIF docs][3]. The easiest is probably to use Cocoapods for dependency management in Objective-C. I will not describe the whole setup in detail here. You may just read it on the [KIF website][4].  
 
-The current version ... does not support taking screenshots yet.
+The only important thing to mention is that we have to use the `:head` version.
+The current version 2.0.0 is about 6 months old and does not support taking screenshots yet.  
+Using Cocoapods we change the version in the `Podfile` as follows:
 
 ```ruby
-platform :ios, '5.1'
-
 # Testing
 target 'Acceptance Tests', :exclusive => true do
   pod 'KIF', :head
 end
 ```
 
-`.travis.yml`
+To set up automated testing in Travis we have to initialize a `.travis.yml` file with the following contents:
 
 ```yml
 language: objective-c
@@ -64,66 +63,169 @@ rvm:
   - 1.9.3
 ```
 
-This would already install your pods and run all tests.
+Note that I use Ruby 1.9.3. During my tests CocoaPods was always segfaulting on Ruby 2.0. This may be fixed now and not necessary anymore.
 
-## TLDR
+Having this in place would already install your Cocoapods dependencies and run all tests.
 
-The "magic" lies in the Travis configuration.
+## Taking Screenshots with KIF
 
-Here is the whole file I came up with:
+As mentioned before we need to run KIF "head" or anything higher than 2.0.0. To enable taking screenshots we need to set an environment variable that tells KIF where to output the images.
 
-`.travis.yml`
+So we modify our `.travis.yml` like so:
 
 ```yml
 language: objective-c
-
 rvm:
   - 1.9.3
+env:
+  global:
+    - KIF_SCREENSHOTS="${TRAVIS_BUILD_DIR}/Screenshots/${TRAVIS_BUILD_NUMBER}"
+before_script:
+  - mkdir -p $KIF_SCREENSHOTS
+```
 
+## Extracting the Screenshots from Travis
+
+Testing KIF testing on your own machine you will see that this really works. This is great! But how do we see the screenshots now that we have taken?
+
+We could
+
+- send them via mail
+- upload them to Dropbox
+- upload them to S3
+- ...
+
+I settled for "uploading them to S3".
+
+### Testing s3cmd
+
+Before we configure this with Travis let's test this on our own machine.  
+For uploading to S3 from the command line we can use [s3cmd][5].
+
+This can also be found and installed with Homebrew on a Mac
+
+``` shell
+$ brew update
+$ brew install s3cmd
+```
+
+To configure it simply run
+
+``` shell
+$ s3cmd --configure
+```
+
+This will ask you for your S3 credentials and store them in `~/.s3cfg`.
+
+Now we can list all our buckets to test the credentials.
+
+``` shell
+$ s3cmd ls
+2013-11-06 02:37  s3://my-full-bucket
+```
+
+Seems to work. So we can create a new bucket for the screenshots.  
+Be aware that bucket names are unique across __all__ users. So we use a FQDN-named bucket to work around this.
+
+``` shell
+$ s3cmd mb s3://travis.code-wemo.com
+```
+
+Now let's try to upload a file
+
+``` shell
+$ s3cmd put testfile s3://travis.code-wemo.com
+```
+
+If that works we are ready to put it into our Travis config.
+
+### Putting it into the Travis config
+
+Create a new s3cmd config file `.s3cfg` in your project folder and add the minimal config
+
+```
+[default]
+access_key = AKRAIFZHFQP5C7I6PLTA
+```
+
+Just add the access\_key for now. We will encrypt the secret\_key for security purposes.  
+You may also study the other options and add them as needed.
+
+To encrypt you secret\_key we can use Travis' "encrypted environment variables" feature. The variables are encrypted with user based RSA keys that Travis generates on a user basis.
+
+To use this we need the Travis CLI tool. We can install it from a Ruby Gem and need to authenticate afterwards.
+
+``` shell
+$ gem install travis
+$ travis login
+```
+
+Now we can encrypt the secret\_key as an AWS\_SECRET environment variable.
+
+``` shell
+$ travis encrypt AWS_SECRET=fKJF1yXHjLwQ/9r77Sm9Z3k62oBiEmKc3HrMsVwf --add
+```
+
+The `--add` parameter adds the encrypted variable to the `.travis.yml` file automatically.
+
+Travis has an `after_failure` hook that we can use to upload the files with s3cmd whenever the tests fail. So we add the following to the Travis config
+
+``` yml
+after_failure:
+  - brew update
+  - brew install s3cmd
+  - echo "secret_key = $AWS_SECRET" >> .s3cfg
+  - s3cmd put --guess-mime-type --config=.s3cfg $KIF_SCREENSHOTS/* s3://travis.code-wemo.com/$TRAVIS_JOB_NUMBER/
+```
+
+Remember to modify the s3 bucket accordingly :)
+
+Here we go. That's it. This will
+
+- update Homebrew
+- install s3cmd
+- add the secret\_key variable to the s3cmd config
+- upload all screenshots to S3
+
+when Travis fails.
+
+To access the screenshots you could use a GUI tool like [Cyberduck][6] or [s3cmd][5] if you prefer the command line.
+
+## Final Travis config
+
+So here is the full `.travis.yml`
+
+```yml
+language: objective-c
+rvm:
+  - 1.9.3
 env:
   global:
     - KIF_SCREENSHOTS="${TRAVIS_BUILD_DIR}/Screenshots/${TRAVIS_BUILD_NUMBER}"
     - secure: N0tEZ7I8F...
-
-before_install:
-  - brew update
-  - brew install s3cmd
-
 before_script:
   - mkdir -p $KIF_SCREENSHOTS
-
 after_failure:
+  - brew update
+  - brew install s3cmd
   - echo "secret_key = $AWS_SECRET" >> .s3cfg
-  - s3cmd put --guess-mime-type --config=.s3cfg $KIF_SCREENSHOTS/* s3://travis-iopensongs/$TRAVIS_JOB_NUMBER/
+  - s3cmd put --guess-mime-type --config=.s3cfg $KIF_SCREENSHOTS/* s3://travis.code-wemo.com/$TRAVIS_JOB_NUMBER/
 ```
 
-### Important things to note:
+## Quick Repetition
+
+Here are some main points that you want to look at when following this approach
 
 - use Ruby 1.9.3 in the rvm part. The default Ruby segfaults when running `pod` for CocoaPods.
 - use KIF > version 2.0.0 or head. Version 2.0.0 does not support taking screenshots.
-- enable taking screenshots with setting the KIF_SCREENSHOTS path
-- use after_failure hook to upload the screenshots to S3
+- enable taking screenshots with setting the KIF\_SCREENSHOTS path
+- use after\_failure hook to upload the screenshots to S3
 
-## Better secure your AWS secret key
-
-.s3cfg
-
-	[default]
-	access_key = AKIAJQNTDRMHAJHFSKFA
-
-add the AWS Secret Key
-
-	travis encrypt AWS_SECRET=fKJF1yXHjLwQ/9t77Sm9Z3k62oBiEmKc3HrMsVwf --add
-
-how it looks in Travis Log
-
-```shell
-$ export KIF_SCREENSHOTS="${TRAVIS_BUILD_DIR}/Screenshots/${TRAVIS_BUILD_NUMBER}"
-$ export AWS_SECRET=[secure]
-$ export TEST_SDK=iphonesimulator5.1
-$ export SIMULATOR=ipad
-```
 
   [1]: http://blog.travis-ci.com/introducing-mac-ios-rubymotion-testing/ "Introducing Mac, iOS and RubyMotion Testing on Travis CI"
-  [2]: http://stackoverflow.com/questions/4114083/ios-tests-specs-tdd-bdd-and-integration-acceptance-testing
+  [2]: http://stackoverflow.com/questions/4114084/ios-tests-specs-tdd-bdd-and-integration-acceptance-testing
+  [3]: https://github.com/kif-framework/KIF#installation-with-cocoapods "KIF Installation (with CocoaPods)"
+  [4]: https://github.com/kif-framework/KIF
+  [5]: http://s3tools.org/s3cmd
+  [6]: http://cyberduck.io/
 
