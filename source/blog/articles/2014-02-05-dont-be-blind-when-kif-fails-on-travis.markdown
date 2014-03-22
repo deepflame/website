@@ -3,7 +3,7 @@ title: Don't be blind when KIF fails on Travis
 author: Andreas Böhrnsen
 date: 2014-02-05 18:16 UTC
 tags: ios, testing, travisci, aws
-published: false
+published: true
 ---
 
 Do you test your iOS app? You should! The best way to test is to simulate and automate user interaction - like a real human would use the app. You can test real use cases and your full stack. KIF is great for that on iOS. It integrates nicely into XCode and it can even take screenshots when it fails.
