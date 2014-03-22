@@ -108,7 +108,9 @@ h2, h3, h4 {
 
 .blog {
   img {
-    width: 100%;
+    // do not exceed width
+    max-width: 100%;
+    // put border
     border: 1px solid #ccc;
     border-radius: 4px;
   }
