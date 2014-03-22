@@ -6,7 +6,7 @@ tags: ios, testing, travisci, aws
 published: false
 ---
 
-Do you test your iOS app? You should! The best way to test is to simulate and automate user interaction - like a real human would use the app. So you test real use cases and your full stack. KIF is great for that on iOS. It integrates nicely into XCode and it can even take screenshots when it fails.
+Do you test your iOS app? You should! The best way to test is to simulate and automate user interaction - like a real human would use the app. You can test real use cases and your full stack. KIF is great for that on iOS. It integrates nicely into XCode and it can even take screenshots when it fails.
 But how to get the screenshots out when we use Travis? Here is how.
 
 READMORE
@@ -15,7 +15,14 @@ READMORE
 
 This article focuses on using KIF for iOS Acceptance Testing. However the way how to get the screenshots out can also be applied to other frameworks like Selenium web testing.
 
-Let me assume that you have a basic understanding of continuous integration with Travis CI, automated testing with KIF 2.0 and Amazon S3 for file hosting.
+Let me assume that you have a basic understanding of 
+
+- continuous integration with [Travis CI][1]
+- automated testing with [KIF 2.0][2]
+- dependency management with [CocoaPods][4] (optional)
+- file hosting with [Amazon S3][9]
+
+There are a lot of wonderful resources on the net if you need to get a quickstart.
 
 ## Using KIF
 
@@ -26,7 +33,7 @@ Setting up KIF is nicely described in [the docs][2] on the KIF website. To keep 
 The most important thing to mention is that we have to use the `:head` version.
 The current version 2.0.0 is about 6 months old and does not support taking screenshots yet.  
 
-Using Cocoapods we change the version in the `Podfile` as follows:
+We change the version in the `Podfile` as follows:
 
 ```ruby
 # Testing
@@ -109,7 +116,7 @@ before_script:
 
 ## Extracting the Screenshots from Travis
 
-Running the KIF tests now on our local machine we see that it generates screenshotsBut how do we see the screenshots now that we have taken?
+On Travis it would now take screenshots whenever a test fails. This is great! But how do we access the screenshots that have been taken?
 
 We could
 
@@ -118,7 +125,7 @@ We could
 - upload them to S3
 - ...
 
-I settled for "uploading them to S3".
+For me the easiest seemed to "upload them to S3".
 
 ### Uploading the screenshots to S3
 
@@ -149,13 +156,13 @@ $ s3cmd ls
 ```
 
 Seems to work. So we can create a new bucket for the screenshots.  
-Be aware that bucket names are unique across __all__ users. So we use a FQDN-named bucket to work around this.
+Be aware that bucket names are unique across __all__ users. Let's use a FQDN-named bucket to work around this.
 
 ``` shell
 $ s3cmd mb s3://travis.code-wemo.com
 ```
 
-Now let's try to upload a file
+Now we can try to upload a file
 
 ``` shell
 $ s3cmd put testfile s3://travis.code-wemo.com
@@ -172,12 +179,12 @@ Create a new s3cmd config file `.s3cfg` in your project folder and add the minim
 access_key = AKRAIFZHFQP5C7I6PLTA
 ```
 
-Just add your access\_key for now. We will encrypt the secret\_key for security reasons.  
-You may also study the other options and add them as needed.
+Just add your own access\_key for now. We will encrypt the secret\_key for security reasons.  
+You may also study the other options and add them as needed. For that check your `~/.s3cmd` file or execute `s3cmd --dump-config`.
 
-To encrypt you secret\_key we can use Travis' "encrypted environment variables" feature. The variables are encrypted/decrypted with public and private RSA keys that Travis generates on a user basis.
+To encrypt your secret\_key we can use Travis' "encrypted environment variables" feature. The variables are encrypted/decrypted with public and private RSA keys that Travis generates on a user basis.
 
-To use this we need the Travis CLI tool. We can install it with Ruby Gems and need to authenticate afterwards.
+For this we need the Travis CLI tool that can be installed with Ruby Gems. Afterwards we need to authenticate to the Travis API.
 
 ``` shell
 $ gem install travis
@@ -244,6 +251,7 @@ You can take the whole procedure even one step further and [test across multiple
 
 Enjoy!
 
+  [1]: http://travis-ci.org
   [2]: https://github.com/kif-framework/KIF
   [3]: https://github.com/facebook/xctool
   [4]: http://cocoapods.org/
@@ -251,4 +259,5 @@ Enjoy!
   [6]: http://cyberduck.io/
   [7]: 2014-02-03-kif-on-s3/cyberduck.png
   [8]: http://andreas.boehrnsen.de/blog/2014/02/testing-multiple-ios-platforms-on-travis/
+  [9]: http://aws.amazon.com/s3/
 
