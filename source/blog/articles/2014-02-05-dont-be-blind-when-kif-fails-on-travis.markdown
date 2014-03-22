@@ -1,7 +1,7 @@
 ---
 title: Don't be blind when KIF fails on Travis
 author: Andreas Böhrnsen
-date: 2014-02-03 18:16 UTC
+date: 2014-02-05 18:16 UTC
 tags: ios, testing, travisci, aws
 published: false
 ---
@@ -96,6 +96,18 @@ Then create a sample test class like this
 ```
 
 and run the tests from the command line. Travis uses [xctool][3]. So it would be best to use this as well.
+It can be installed with Homebrew on the Mac.
+
+``` shell
+$ brew install xctool
+```
+
+You may also want to read the [previous blog post][8] as it gives a short intro to xctool as well.  
+In my case the test command looked like this:
+
+``` shell
+$ xctool -workspace iOpenSongs.xcworkspace -scheme Beta -sdk iphonesimulator test
+```
 
 If you get a screenshot of the start screen it worked!
 
@@ -112,6 +124,8 @@ env:
     - KIF_SCREENSHOTS="${TRAVIS_BUILD_DIR}/Screenshots"
 before_script:
   - mkdir -p $KIF_SCREENSHOTS
+script:
+  - xctool -workspace iOpenSongs.xcworkspace -scheme Beta -sdk iphonesimulator test
 ```
 
 ## Extracting the Screenshots from Travis
@@ -199,12 +213,13 @@ $ travis encrypt AWS_SECRET=fKJF1yXHjLwQ/9r77Sm9Z3k62oBiEmKc3HrMsVwf --add
 
 The `--add` parameter adds the encrypted variable to the `.travis.yml` file automatically.
 
-Travis has an `after_failure` hook that we can use to upload the files with s3cmd whenever the tests fail. So we add the following to the Travis config
+Travis has a `before_install` hook that we use to install the s3cmd too and an `after_failure` hook that we can use to upload the files with s3cmd whenever the tests fail. So we add the following to the Travis config
 
 ``` yml
-after_failure:
+before_install:
   - brew update
   - brew install s3cmd
+after_failure:
   - echo "secret_key = $AWS_SECRET" >> .s3cfg
   - s3cmd put --guess-mime-type --config=.s3cfg $KIF_SCREENSHOTS/* s3://travis.code-wemo.com/$TRAVIS_JOB_NUMBER/
 ```
@@ -238,11 +253,14 @@ env:
   global:
     - KIF_SCREENSHOTS="${TRAVIS_BUILD_DIR}/Screenshots"
     - secure: N0tEZ7I8F...
-before_script:
-  - mkdir -p $KIF_SCREENSHOTS
-after_failure:
+before_install:
   - brew update
   - brew install s3cmd
+before_script:
+  - mkdir -p $KIF_SCREENSHOTS
+script:
+  - xctool -workspace iOpenSongs.xcworkspace -scheme Beta -sdk iphonesimulator test
+after_failure:
   - echo "secret_key = $AWS_SECRET" >> .s3cfg
   - s3cmd put --guess-mime-type --config=.s3cfg $KIF_SCREENSHOTS/* s3://travis.code-wemo.com/$TRAVIS_JOB_NUMBER/
 ```
@@ -257,7 +275,7 @@ Enjoy!
   [4]: http://cocoapods.org/
   [5]: http://s3tools.org/s3cmd
   [6]: http://cyberduck.io/
-  [7]: 2014-02-03-kif-on-s3/cyberduck.png
+  [7]: 2014-02-05-dont-be-blind-when-kif-fails-on-travis/cyberduck.png
   [8]: http://andreas.boehrnsen.de/blog/2014/02/testing-multiple-ios-platforms-on-travis/
   [9]: http://aws.amazon.com/s3/
 
