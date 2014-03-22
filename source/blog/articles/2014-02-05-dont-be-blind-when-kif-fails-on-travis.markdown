@@ -213,13 +213,12 @@ $ travis encrypt AWS_SECRET=fKJF1yXHjLwQ/9r77Sm9Z3k62oBiEmKc3HrMsVwf --add
 
 The `--add` parameter adds the encrypted variable to the `.travis.yml` file automatically.
 
-Travis has a `before_install` hook that we use to install the s3cmd too and an `after_failure` hook that we can use to upload the files with s3cmd whenever the tests fail. So we add the following to the Travis config
+Travis has an `after_failure` hook that we can use to install s3cmd and to upload the screenshots whenever the tests fail. So we add the following to the Travis config
 
 ``` yml
-before_install:
+after_failure:
   - brew update
   - brew install s3cmd
-after_failure:
   - echo "secret_key = $AWS_SECRET" >> .s3cfg
   - s3cmd put --guess-mime-type --config=.s3cfg $KIF_SCREENSHOTS/* s3://travis.code-wemo.com/$TRAVIS_JOB_NUMBER/
 ```
@@ -253,14 +252,13 @@ env:
   global:
     - KIF_SCREENSHOTS="${TRAVIS_BUILD_DIR}/Screenshots"
     - secure: N0tEZ7I8F...
-before_install:
-  - brew update
-  - brew install s3cmd
 before_script:
   - mkdir -p $KIF_SCREENSHOTS
 script:
   - xctool -workspace iOpenSongs.xcworkspace -scheme Beta -sdk iphonesimulator test
 after_failure:
+  - brew update
+  - brew install s3cmd
   - echo "secret_key = $AWS_SECRET" >> .s3cfg
   - s3cmd put --guess-mime-type --config=.s3cfg $KIF_SCREENSHOTS/* s3://travis.code-wemo.com/$TRAVIS_JOB_NUMBER/
 ```
