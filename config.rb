@@ -33,7 +33,18 @@ page "/blog/feed.xml", layout: false
 
 activate :syntax
 set :markdown_engine, :redcarpet
-set :markdown, :fenced_code_blocks => true, :smartypants => true
+set :markdown, 
+#              :no_intra_emphasis => true,
+#              :tables => true,
+               :fenced_code_blocks => true,
+#              :autolink => true,
+#              :strikethrough => true,
+#              :lax_html_blocks => true,
+#              :space_after_headers => true,
+#              :with_toc_data => true,
+#              :superscript => true,
+               :smartypants => true
+#              :hard_wrap => true
 
 ###
 # Compass
