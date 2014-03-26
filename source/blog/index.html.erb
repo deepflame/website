@@ -1,7 +1,5 @@
-<h2>Articles</h2>
-
 <% blog.articles.each do |article| %>
-<p class="">
+<div class="article">
   <h3 class=""><%= link_to article.title, article %></h3>
 
   <span class="text-muted"><%= article.date.strftime('%b. %e %Y') %></span>
@@ -17,6 +15,6 @@
   <div>
     <%= strip_tags article.summary %>
   </div>
-</p>
+</div>
 <% end %>
 
