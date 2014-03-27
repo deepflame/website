@@ -1,5 +1,6 @@
-<% content_for :meta_tags do %>
 <% site_url = "http://andreas.boehrnsen.de" # <-- configure ! %>
+<% site_article_url = URI.join(site_url, current_article.url) %>
+<% content_for :meta_tags do %>
 <!-- Google Authorship and Publisher Markup -->
 <link rel="author" href="https://plus.google.com/+AndreasBöhrnsen"/>
 <link rel="publisher" href=”https://plus.google.com/+AndreasBöhrnsen"/>
@@ -9,12 +10,12 @@
 <meta name="twitter:title" content="<%=h current_article.title %>">
 <meta name="twitter:description" content="<%=h strip_tags(current_article.summary) %>">
 <meta name="twitter:creator" content="@deepflame">
-<meta name="twitter:image" content="<%= URI.join(site_url, image_path("avatar.jpg")) %>">
+<%# meta name="twitter:image" content="<%= URI.join(site_url, image_path("avatar.jpg")) %>
 <!-- Open Graph data -->
 <meta property="og:title" content="<%=h current_article.title %>">
 <meta property="og:type" content="article">
-<meta property="og:url" content="<%= URI.join(site_url, current_article.url) %>">
-<meta property="og:image" content="<%= URI.join(site_url, image_path("avatar.jpg")) %>">
+<meta property="og:url" content="<%= site_article_url %>">
+<%# meta property="og:image" content="<%= URI.join(site_url, image_path("avatar.jpg")) %>
 <meta property="og:description" content="<%=h strip_tags(current_article.summary) %>">
 <% end %>
 
@@ -25,6 +26,18 @@
     <p class="lead">by Andreas Böhrnsen</p>
     <%= yield %>
   </div>
+
+  <hr />
+  <div class="text-center">
+    Share this post on:
+  </div>
+  <div class="text-center">
+    <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/sharer.php?u=<%=CGI::escape site_article_url.to_s %>&title=<%=CGI::escape current_article.title %>" target="_blank"><i class="fa fa-facebook"></i></a>
+    <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/intent/tweet?text=<%=CGI::escape current_article.title %>&url=<%=CGI::escape site_article_url.to_s %>&via=deepflame" target="_blank"><i class="fa fa-twitter"></i></a>
+    <a class="btn btn-social-icon btn-google-plus" href="http://plus.google.com/share?url=<%=CGI::escape site_article_url.to_s %>" target="_blank"><i class="fa fa-google-plus"></i></a>
+    <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=<%=CGI::escape site_article_url.to_s %>" target="_blank"><i class="fa fa-linkedin"></i></a>
+  </div>
+  <hr />
 
   <ul class="pager">
     <li class="previous">
