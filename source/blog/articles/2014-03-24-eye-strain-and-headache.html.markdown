@@ -56,7 +56,7 @@ Maybe the solution will be to buy a CCFL backlit screen or even an old CRT. Ther
 
 ## Conclusion
 
-Surely LED backlit displays may have their [advantages over CCFL lit displays][wikipedia+comparison], the [complaints on the internet][squidoo-comments] tell me that display development is currently in a bad state. Being exposed to an LED light for several hours a day may be more harmful than we currently know. And people who suffer from eye strain, headache, migraine or even depression may not realize that their TV, computer, laptop, tablet or phone screen causes it.
+Surely LED backlit displays may have their [advantages over CCFL lit displays][wikipedia+comparison], the [complaints on the internet][squidoo-comments] tell me that display development needs to be seriously improved. Being exposed to an LED light for several hours a day may be more harmful than we currently know. And people who suffer from eye strain, headache, migraine or even depression may not realize that their TV, computer, laptop, tablet or phone screen causes it.
 
 If you want to buy a desktop screen today there are unfortunately no alternatives to LED available.  
 People who are affected can try to use the new flicker free screens and/or blue light filters or buy an old screen without LED backlighting from ebay or craigslist in the meantime.
@@ -64,7 +64,7 @@ People who are affected can try to use the new flicker free screens and/or blue 
 Hope that OLED or other upcoming technologies will bring more comfort to the eyes. Our health is essential!
 
 What is your experience with LED backlit displays? Do you experience any eye strain or headache?  
-Let me know on Twitter on in the comments.
+Let me know on Twitter or in the comments.
 
 ## More Resources
 
