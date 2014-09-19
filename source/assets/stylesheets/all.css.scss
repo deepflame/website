@@ -119,7 +119,7 @@ h2, h3, h4 {
 .blog {
 
   font-size: 15px;
-  line-height: 1.7;
+  line-height: 1.6em;
 
   img {
     // do not exceed width
@@ -127,6 +127,11 @@ h2, h3, h4 {
     // put border
     border: 1px solid #ccc;
     border-radius: 4px;
+  }
+
+  // more space between paragraphs
+  div.article p {
+    margin-top: 1.4em;
   }
 
   pre.highlight {
