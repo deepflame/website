@@ -1,7 +1,7 @@
 ---
 title: "Git: push to other remote branch"
 date: 2014-09-19 09:07 UTC
-tags: git heroku
+tags: git, heroku
 ---
 
 When deploying the app to Heroku it expects that we push it to the master branch on Heroku.

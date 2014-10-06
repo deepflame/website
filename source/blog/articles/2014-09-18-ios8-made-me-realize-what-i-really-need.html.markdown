@@ -1,7 +1,7 @@
 ---
 title: iOS8 made me realize what I really need
 date: 2014-09-18 15:04 UTC
-tags: ios upgrade
+tags: ios, upgrade
 published: tr
 ---
 
