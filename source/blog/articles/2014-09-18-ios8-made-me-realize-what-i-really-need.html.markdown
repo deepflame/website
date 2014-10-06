@@ -2,7 +2,7 @@
 title: iOS8 made me realize what I really need
 date: 2014-09-18 15:04 UTC
 tags: ios, upgrade
-published: tr
+published: true
 ---
 
 Yesterday evening I was checking as usual which iOS apps are updated - it's just a habit. Wow! So many updates. That can only mean that iOS8 is finally released.
