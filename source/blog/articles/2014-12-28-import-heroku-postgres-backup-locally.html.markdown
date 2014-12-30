@@ -22,6 +22,12 @@ curl -o latest.dump `heroku pgbackups:url`
 Restore locally
 
 ```shell
+# choose:
+
+# found on Stackoverflow (tested and worked)
+pg_restore -O -d mydb latest.dump
+
+# from Heroku docs
 pg_restore --verbose --clean --no-acl --no-owner -h localhost -U myuser -d mydb latest.dump
 ```
 
