@@ -11,7 +11,6 @@
 .bundle
 
 # bundler stubs and gems
-/bin
 /vendor/bundle
 
 # build directory
