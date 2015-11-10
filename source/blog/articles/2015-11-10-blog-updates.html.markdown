@@ -15,15 +15,27 @@ Also, this blog is using [Middleman](https://middlemanapp.com) and it is not as 
 
 Let's see how it goes. I payed more with Docker and was thinking to move all my dev environments there. That could be a nice post. That hopefully does not outdate so quickly :)
 
+---
 
-Update 10min later:
+Update 10min later:  
 Seems that prose.io [does not support Middleman](https://github.com/prose/prose/issues/561) yet, just Jekyll. Well, so my hunt to a less painful blog experience continues.
 
-Update 15min later:
+---
+
+Update 15min later:  
 This blog post did not build because the date in the frontmatter did not match the one in the file name. Does it make sense to keep it in two places?
 
-Update 17min later:
+---
+
+Update 17min later:  
 For some reason I had the wrong file extension. Should be `.html.markdown` and not only `.markdown`. Learned something new again :)
 
-Update 24min later:
+---
+
+Update 24min later:  
 Hay, we have winter time now in Germany. So the date in the frontmatter was in the future and the post was not build...
+
+---
+
+Update 41min later:  
+So the rendering is not the same in every markdown editor. Guess I made some changes to the rendering config. Ok, so firing up Middleman and using the Livereload feature helps.
