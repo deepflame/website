@@ -33,9 +33,6 @@ page "/blog/feed.xml", layout: false
 
 activate :directory_indexes
 
-# load dotenv file
-activate :dotenv
-
 activate :syntax
 set :markdown_engine, :redcarpet
 set :markdown,
@@ -72,6 +69,7 @@ end
 
 # Development-specific configuration
 configure :development do
+  activate :dotenv
   activate :livereload
 end
 
