@@ -5,7 +5,7 @@ tags: blog
 published: true
 ---
 
-What happened? There are no recent posts.
+What happened? There are no recent posts!
 
 READMORE
 
