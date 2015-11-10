@@ -1,6 +1,7 @@
 language: ruby
 rvm:
-  - 1.9.3
+  - 2.2.3
+cache: bundler
 env:
   global:
     - secure: SF3Q9vJYKEyZiZ3UOVrcEG2jXrnEhwTlVs271VR6MvspNa2/UU/tU5TlO7DnEKCt/UgQDvyjeI77dwYJE8KgECvNyrb9F8JCIeBXfaqKeNrY7Ig3pVc77diQ85RnDHm6xI+Yqr3RWr9zNh1MHkcZPOmueqyKw1f+Qc6GLZZxsR4=
@@ -8,5 +9,7 @@ env:
     - secure: HQxyG8/spOn5rXM74jLmKy3IMu3yx8mhv8HDCC60oLRPL8+shp7eaZtGVEyiAzwIInEmHhPIKLl5NqEIQM1SUS7Q4s8GTp7r5Kf4mAB0QVIReJprJmVDC9eXngz+kKAZolOjq9rOrQ6lSatqNEftPHZC0/20u4gmTvopAHWeL74=
     - secure: DQ8R/AInZXY1WBHCDxxtwKqv8OYPzCHd/yYSH+OIwtIcsM1Bab5oBkg6pre3FFBcFgIklXwhc7Ab0lVw4JukiCV7/7LKCEk9eqMhvFurVASI4W87HNRwT/hoLdnd/CKMd0bfc9ZDPJe8QZ7UysATlpCFkOUFk7s56zE4BPwzZSg=
     - secure: gg0E+PG+5Kfmf+bE3ae2mDobZUUeInygUs8MSuwpBdByxZBASuO2LmQRkj+52cs20Ky/2BOY5YUGhxVARZs8v27OE9uR770QEG9FOVrp4zchCALWHgrLOqbl+0gHWT0XYLi8PI6VhnFsAI3yfH3HY8B88EDZPlGCmfthU3txlKA=
+    - secure: n9Dwqx1cAcYhHxsNNpLseOaxwuWXKHaYJePsSawGsce3RJM4ibxKfDbCvBCQFrqF17et6HH8JGLQIqj6QZpdar0gS9+vsixWHOiG9puXC3CFlWTkbT1rUFD281aI1CiUGHW3q5wiYIlPWwO3cv+gY8/K+zun3a/W2yy2vVfWs5s=
+sudo: false
 script:
   - bundle exec middleman build
