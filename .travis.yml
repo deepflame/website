@@ -13,3 +13,6 @@ env:
 sudo: false
 script:
   - bundle exec middleman build
+after_success:
+  - bundle exec middleman sync
+  - bundle exec middleman invalidate
