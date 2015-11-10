@@ -11,10 +11,6 @@ set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'
 set :images_dir, 'assets/images'
 
-activate :autoprefixer do |config|
-   config.browsers = ['last 2 versions', 'Explorer >= 9']
-end
-
 activate :blog do |blog|
   blog.prefix = "blog"
 
@@ -81,6 +77,9 @@ end
 
 # Build-specific configuration
 configure :build do
+  activate :autoprefixer do |config|
+    config.browsers = ['last 2 versions', 'Explorer >= 9']
+  end
   activate :minify_css
   activate :minify_javascript
   activate :asset_hash
