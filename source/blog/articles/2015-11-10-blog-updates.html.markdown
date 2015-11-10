@@ -21,3 +21,6 @@ Seems that prose.io [does not support Middleman](https://github.com/prose/prose/
 
 Update 15min later:
 This blog post did not build because the date in the frontmatter did not match the one in the file name. Does it make sense to keep it in two places?
+
+Update 17min later:
+For some reason I had the wrong file extension. Should be `.html.markdown` and not only `.markdown`. Learned something new again :)
