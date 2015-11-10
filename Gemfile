@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-gem "middleman"
+gem "middleman", "~> 3.4"
 gem "middleman-blog"
 gem "middleman-syntax"
+gem "middleman-autoprefixer"
 
 gem "redcarpet"
 
