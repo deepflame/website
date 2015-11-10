@@ -1,6 +1,12 @@
 source 'https://rubygems.org'
 
-gem "middleman", "~> 3.4"
+gem "middleman-core", "~> 3.4"
+gem "middleman-sprockets", ">= 3.1.2"
+gem "uglifier", "~> 2.5"
+gem "execjs", "~> 2.0"
+gem "sass"
+gem "sassc", "~> 1.6"
+
 gem "middleman-blog"
 gem "middleman-syntax"
 gem "middleman-autoprefixer"
