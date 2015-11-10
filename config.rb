@@ -89,13 +89,13 @@ activate :directory_indexes
 activate :dotenv
 
 # deploy to AWS
-activate :s3_sync do |s3_sync|
-  s3_sync.bucket                = ENV['AWS_BUCKET']
-  s3_sync.region                = ENV['AWS_REGION']
-  s3_sync.aws_access_key_id     = ENV['AWS_ACCESS']
-  s3_sync.aws_secret_access_key = ENV['AWS_SECRET']
-  s3_sync.delete                = false
-  s3_sync.prefer_gzip           = true
+activate :s3_sync do |s3|
+  s3.bucket                = ENV['AWS_BUCKET']
+  s3.region                = ENV['AWS_REGION']
+  s3.aws_access_key_id     = ENV['AWS_ACCESS']
+  s3.aws_secret_access_key = ENV['AWS_SECRET']
+  s3.delete                = false
+  s3.prefer_gzip           = true
 end
 
 activate :cloudfront do |cf|
