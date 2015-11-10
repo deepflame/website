@@ -1,6 +1,6 @@
 ---
 title: No updates?
-date: 2015-11-11 18:00 UTC
+date: 2015-11-10 18:00 UTC
 tags: blog
 published: true
 ---
@@ -18,3 +18,6 @@ Let's see how it goes. I payed more with Docker and was thinking to move all my 
 
 Update 10min later:
 Seems that prose.io [does not support Middleman](https://github.com/prose/prose/issues/561) yet, just Jekyll. Well, so my hunt to a less painful blog experience continues.
+
+Update 15min later:
+This blog post did not build because the date in the frontmatter did not match the one in the file name. Does it make sense to keep it in two places?
