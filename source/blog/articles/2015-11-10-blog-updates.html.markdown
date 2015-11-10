@@ -1,6 +1,6 @@
 ---
 title: No updates?
-date: 2015-11-10 18:00 UTC
+date: 2015-11-10 17:27 UTC
 tags: blog
 published: true
 ---
@@ -24,3 +24,6 @@ This blog post did not build because the date in the frontmatter did not match t
 
 Update 17min later:
 For some reason I had the wrong file extension. Should be `.html.markdown` and not only `.markdown`. Learned something new again :)
+
+Update 24min later:
+Hay, we have winter time now in Germany. So the date in the frontmatter was in the future and the post was not build...
