@@ -1,5 +1,5 @@
 ---
-title: No updates?
+title: No Blog updates?
 date: 2015-11-10 17:27 UTC
 tags: blog
 published: true
