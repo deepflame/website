@@ -1,6 +1,8 @@
 # Personal Website
 
-Built using
+[![Build Status](https://travis-ci.org/deepflame/website.svg?branch=master)](https://travis-ci.org/deepflame/website)
+
+Crafted using
 
 - Middleman
 - Bootstrap 3
