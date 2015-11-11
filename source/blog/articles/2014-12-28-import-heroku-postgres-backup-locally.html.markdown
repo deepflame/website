@@ -1,6 +1,7 @@
 ---
 title: Import Heroku Postgres backup locally
 date: 2014-12-28 12:07 UTC
+update: 2015-11-11
 tags: postgresql, heroku
 ---
 
@@ -15,8 +16,8 @@ This post serves mostly as reference for me but I hope you also find it helpful.
 Dump a backup
 
 ```shell
-heroku pgbackups:capture
-curl -o latest.dump `heroku pgbackups:url`
+heroku pg:backups capture
+curl -o latest.dump `heroku pg:backups public-url`
 ```
 
 Restore locally
