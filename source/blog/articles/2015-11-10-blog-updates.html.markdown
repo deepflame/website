@@ -1,8 +1,6 @@
 ---
 title: No Blog updates?
-date: 2015-11-10 17:27 UTC
-tags: blog
-published: true
+tags: blog, middleman
 ---
 
 What happened? There are no recent posts!
@@ -39,3 +37,4 @@ Hay, we have winter time now in Germany. So the date in the frontmatter was in t
 
 **Update 41min later**  
 So the rendering is not the same in every markdown editor. Guess I made some changes to the rendering config. Ok, so firing up Middleman and using the Livereload feature helps.
+
