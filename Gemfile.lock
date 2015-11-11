@@ -271,8 +271,7 @@ DEPENDENCIES
   middleman-sprockets (>= 3.1.2)
   middleman-syntax
   redcarpet
-  sass
-  sassc (~> 1.6)
+  sassc (~> 1.8)
   uglifier (~> 2.5)
 
 BUNDLED WITH
