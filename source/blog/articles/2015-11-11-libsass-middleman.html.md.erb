@@ -73,10 +73,15 @@ gem "sassc", "~> 1.8" # <- added libSass
 
 Using and running Middleman did not change, just start it with `bundle exec middleman`.
 
+Hope that helps.
+
 
 **Update 2015-12-03**
 
 The interesting thing is that `sassc` itself imports `sass`. So, how can we be sure that really `sassc` is used and not `sass`?
+
+`Sassc` is faster than `sass` (that's why we are using it, right?). You will notice that especially for large projects.
+You can also check this programmatically.
 
 If we have `sass` included in our Gemfile we can compile a Sass string in the context of the bundle like this:
 
@@ -92,19 +97,6 @@ This does not work anymore if we have `sassc` installed. We need to use the Sass
 ❯ bundle console
 >> Sass.compile "body { color: red }"
 NoMethodError: undefined method `compile' for Sass:Module
-        from (irb):1
-        from /Users/aboehrnsen/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/bundler-1.10.6/lib/bundler/cli/console.rb:14:in `run'
-        from /Users/aboehrnsen/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/bundler-1.10.6/lib/bundler/cli.rb:308:in `console'
-        from /Users/aboehrnsen/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/bundler-1.10.6/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run'
-        from /Users/aboehrnsen/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/bundler-1.10.6/lib/bundler/vendor/thor/lib/thor/invocation.rb:126:in `invoke_command'
-        from /Users/aboehrnsen/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/bundler-1.10.6/lib/bundler/vendor/thor/lib/thor.rb:359:in `dispatch'
-        from /Users/aboehrnsen/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/bundler-1.10.6/lib/bundler/vendor/thor/lib/thor/base.rb:440:in `start'
-        from /Users/aboehrnsen/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/bundler-1.10.6/lib/bundler/cli.rb:10:in `start'
-        from /Users/aboehrnsen/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/bundler-1.10.6/bin/bundle:20:in `block in <top (required)>'
-        from /Users/aboehrnsen/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/bundler-1.10.6/lib/bundler/friendly_errors.rb:7:in `with_friendly_errors'
-        from /Users/aboehrnsen/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/bundler-1.10.6/bin/bundle:18:in `<top (required)>'
-        from /Users/aboehrnsen/.rbenv/versions/2.0.0-p481/bin/bundle:23:in `load'
-        from /Users/aboehrnsen/.rbenv/versions/2.0.0-p481/bin/bundle:23:in `<main>'
 
 >> SassC::Engine.new("body { color: red; }").render
 => "body {\n  color: red; }\n"
@@ -112,4 +104,3 @@ NoMethodError: undefined method `compile' for Sass:Module
 
 It also seems that `sassc` just uses `sass` to import some sass functions as you can see [on Github](https://github.com/sass/sassc-ruby/blob/master/lib/sassc/script.rb).
 
-Hope that helps.
