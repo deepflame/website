@@ -1,0 +1,176 @@
+{
+  "basics": {
+    "name": "Andreas Böhrnsen",
+    "label": "Consultant and Software Engineer",
+    "picture": "",
+    "email": "andreas@frontrunner.io",
+    "phone": "+49 (0)160 6220730",
+    "website": "http://frontrunner.io",
+    "summary": "",
+    "location": {
+      "address": "Ruppiner Chaussee 305",
+      "postalCode": "13503",
+      "city": "Berlin",
+      "countryCode": "DE",
+      "region": ""
+    },
+    "profiles": [
+      {
+        "network": "Github",
+        "username": "deepflame",
+        "url": "https://twitter.com/deepflame"
+      },
+      {
+        "network": "Twitter",
+        "username": "deepflame",
+        "url": "https://twitter.com/deepflame"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "Frontrunner Software",
+      "position": "Independent Consultant and Software Engineer",
+      "website": "http://frontrunner.io",
+      "startDate": "2013-10-01",
+      "endDate": "",
+      "summary": "Consulting and development for webbased systems and mobile apps. Specializing in Ruby on Rails and EmberJS",
+      "highlights": [
+        "HR mobile app prototype in EmberJS with Rails API backend",
+        "Custom online shop for a font foundry in Ruby on Rails",
+        "Homepage and company search app implementation - in EmberJS"
+      ]
+    },
+    {
+      "company": "Open iT Philippines Inc.",
+      "position": "Senior Solutions Consultant",
+      "website": "http://openit.com",
+      "startDate": "2009-11-01",
+      "endDate": "2013-07-31",
+      "summary": "Moved to the Philippines, worked mainly in delivery and development",
+      "highlights": [
+        "Leading the local development team for 6 months",
+        "Lead Developer of a webbased admin and configuration interface - done in Rails with Eventmachine"
+      ]
+    },
+    {
+      "company": "Open iT Norge AS",
+      "position": "Systems Engineer",
+      "website": "http://openit.com",
+      "startDate": "2007-09-01",
+      "endDate": "2009-11-01",
+      "summary": "Moved to Norway, worked with many Fortune 500 companies and developed internal tools.",
+      "highlights": [
+        "Developed webbased patch site to manage, build and bundle product patches - done in Ruby on Rails.",
+        "Developed webbased timetracking tool - done in Ruby on Rails"
+      ]
+    },
+    {
+      "company": "Open iT Deutschland GmbH",
+      "position": "Systems Analyst",
+      "website": "http://openit.com",
+      "startDate": "2007-01-01",
+      "endDate": "2007-09-01",
+      "summary": "Training and work in Support and Professional Services team"
+    },
+    {
+      "company": "Infoman Informationsmanagement GmbH",
+      "position": "Software Developer",
+      "website": "www.infoman-systeme.de",
+      "startDate": "2004-11-01",
+      "endDate": "2006-12-01",
+      "summary": "Web developer using PHP and Java. Starting with Rails development.",
+      "highlights": [
+        "Working on a webbased assembly line learning system for a German car manufacturer.",
+        "Prototyping same tool in Rails. Learning about MVC and the Rails way."
+      ]
+    },
+    {
+      "company": "Infoman AG",
+      "position": "Student",
+      "website": "http://infoman.de",
+      "startDate": "2001-10-01",
+      "endDate": "2004-09-01",
+      "summary": "Workplace training during studies at BA Stuttgart (~50 % of the time)",
+      "highlights": [
+        "concept, design and implementation of webbased tools with PHP, ColdFusion and ASP.net.",
+        "concept, design and implementation of a service app for a mechanical engineering company connecting to SAP"
+      ]
+    }
+  ],
+  "volunteer": [
+  ],
+  "education": [
+    {
+      "institution": "Berufsakademie Stuttgart",
+      "area": "Stuttgart, Germany",
+      "studyType": "Information Technology",
+      "startDate": "2001-10-01",
+      "endDate": "2004-09-01",
+      "gpa": "",
+      "courses": [
+        "Network and Software Engineering"
+      ]
+    }
+  ],
+  "awards": [],
+  "publications": [],
+  "skills": [
+    {
+      "name": "Web Development",
+      "level": "Expert",
+      "keywords": [
+        "Ruby / Ruby on Rails",
+        "HTML5, CSS3, ES6",
+        "EmberJS"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "German",
+      "fluency": "native"
+    },
+    {
+      "language": "English",
+      "fluency": "fluent"
+    },
+    {
+      "language": "Norwegian",
+      "fluency": "above average"
+    },
+    {
+      "language": "Tagalog / Filipino",
+      "fluency": "basic knowledge"
+    },
+    {
+      "language": "French",
+      "fluency": "basic knowledge"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Playing music",
+      "keywords": [
+        "Guitar",
+        "Piano"
+      ]
+    },
+    {
+      "name": "Learning",
+      "keywords": [
+        "Religion (Christianity)",
+        "Cultural differences",
+        "Languages"
+      ]
+    },
+    {
+      "name": "Photography",
+      "keywords": [
+        "Family",
+        "Travel"
+      ]
+    }
+  ],
+  "references": []
+}
