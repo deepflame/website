@@ -1,0 +1,26 @@
+// requires modular-scale and compass/typography/vertical_rhythm
+
+// configure modular scale
+$ms-base: 16px;
+$ms-ratio: $augmented-fourth;
+
+$font-size-smaller: ms(-2);
+$font-size-small: ms(-1);
+$font-size-normal: ms(0);
+$font-size-medium: ms(1);
+$font-size-big: ms(2);
+$font-size-bigger: ms(3);
+$font-size-biggest: ms(4);
+
+// configure vertical-rhythm
+$base-font-size: $font-size-normal;
+$base-line-height: $font-size-normal * $ms-ratio;
+$base-line-height: 23px;
+$rhythm-unit: "px";
+
+@include establish-baseline;
+
+// baseline grid (for debugging)
+body {
+	@include baseline-grid($base-line-height);
+}

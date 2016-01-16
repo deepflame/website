@@ -1,0 +1,30 @@
+
+body {
+  & > header {
+    min-height: rhythm(15);
+    background-color: lightblue;
+
+    .logo {
+    }
+
+    nav {
+      @include clearfix;
+      li {
+        float: left; // does not add extra space like "display: inline-block"
+        margin-right: 10px;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  & > main {
+    min-height: rhythm(30);
+  }
+
+  & > footer {
+    min-height: rhythm(20);
+    background-color: grey;
+  }
+}
