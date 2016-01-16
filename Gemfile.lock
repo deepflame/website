@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     CFPropertyList (2.3.2)
     activesupport (4.2.4)
@@ -219,6 +220,10 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rails-assets-jquery (1.12.0)
+    rails-assets-modernizr (2.8.3)
+    rails-assets-modular-scale (2.1.1)
+    rails-assets-responsive-nav (1.0.39)
     rb-fsevent (0.9.6)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -270,6 +275,10 @@ DEPENDENCIES
   middleman-s3_sync (~> 3.x)
   middleman-sprockets (>= 3.1.2)
   middleman-syntax
+  rails-assets-jquery (~> 1.0)!
+  rails-assets-modernizr (= 2.8.3)!
+  rails-assets-modular-scale!
+  rails-assets-responsive-nav!
   redcarpet
   sassc (~> 1.8)
   uglifier (~> 2.5)
