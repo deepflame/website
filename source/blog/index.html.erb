@@ -1,20 +1,19 @@
 <% blog.articles.each do |article| %>
-<div class="article">
-  <h3 class=""><%= link_to article.title, article %></h3>
+  <article>
+    <h1><%= link_to article.title, article %></h1>
 
-  <span class="text-muted"><%= article.date.strftime('%b. %e %Y') %></span>
+    <header>
+      <time pubdate datetime="<%= article.date.strftime('%Y-%M-%d') %>"><%= article.date.strftime('%b. %e %Y') %></time>
+      <ul class="tags">
+        <% article.tags.each do |tag| %>
+          <li><%= link_to tag, tag_path(tag) %></li>
+        <% end %>
+      </ul>
+    </header>
 
-  <div class="tag-list">
-    <ul class="list-inline">
-    <% article.tags.each do |tag| %>
-      <li><%= link_to tag, tag_path(tag) %></li>
-    <% end %>
-    </ul>
-  </div>
-
-  <div>
-    <%= strip_tags article.summary %>
-  </div>
-</div>
+    <main>
+      <%= strip_tags article.summary %>
+    </main>
+  </article>
 <% end %>
 
