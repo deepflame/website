@@ -1,5 +1,10 @@
 
 a {
   color: $color-link;
-  //text-decoration: none;
+  text-decoration: none;
+  transition: color .1s;
+
+  &:hover {
+    color: $color-text;
+  }
 }
