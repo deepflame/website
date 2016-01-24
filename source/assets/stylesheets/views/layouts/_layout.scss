@@ -1,5 +1,14 @@
 
 body {
+
+  // browser update prompt
+  .browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+  }
+
   & > header {
     @include container;
     @include clearfix;
