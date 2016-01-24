@@ -32,11 +32,14 @@ body.blog main {
 
   }
 
+  // spacing between articles
+  article {
+    padding-bottom: rhythm(0.5);
+  }
   article + article {
     margin-top: rhythm(1.5);
     border-top: solid 1px $palette-lightgrey;
     padding-top: rhythm(1.5) - 1px;
-    padding-bottom: rhythm(0.5);
   }
 
 }
