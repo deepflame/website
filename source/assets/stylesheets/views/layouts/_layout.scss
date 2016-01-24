@@ -1,17 +1,33 @@
 
 body {
   & > header {
-    min-height: rhythm(15);
-    background-color: lightblue;
+    @include container;
+    @include clearfix;
 
-    .logo {
+    position: relative;
+    min-height: rhythm(5);
+    margin-top: rhythm(5);
+    padding-bottom: rhythm(1) - 1px;
+    border-bottom: solid 1px $palette-lightgrey;
+
+    h1 {
+      @include adjust-font-size-to($font-size-biggest);
+    }
+    h2 {
+      @include adjust-font-size-to($font-size-medium);
     }
 
     nav {
-      @include clearfix;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      margin-top: rhythm(1);
+
       li {
+        @include adjust-font-size-to($font-size-normal);
         float: left; // does not add extra space like "display: inline-block"
-        margin-right: 10px;
+        margin-right: rhythm(2);
       }
       a {
         text-decoration: none;
@@ -20,11 +36,26 @@ body {
   }
 
   & > main {
+    @include container;
+
     min-height: rhythm(30);
+    padding-top: rhythm(2.5);
+    padding-bottom: rhythm(2.5);
   }
 
   & > footer {
-    min-height: rhythm(20);
-    background-color: grey;
+    @include container;
+    @include clearfix;
+
+    min-height: rhythm(3);
+    border-top: 1px solid $palette-lightgrey;
+    padding-top: rhythm(0.5) - 1px;
+
+    .copyright {
+      float: left;
+    }
+    .links {
+      float: right;
+    }
   }
 }
