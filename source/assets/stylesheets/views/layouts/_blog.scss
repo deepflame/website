@@ -6,8 +6,10 @@ body.blog main {
   }
 
   header {
-    margin-bottom: rhythm(1);
+    @include adjust-font-size-to($font-size-small);
     @include clearfix;
+
+    margin-bottom: rhythm(0.5);
 
     time {
       float: left;
