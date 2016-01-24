@@ -1,0 +1,25 @@
+
+body.index main {
+
+  img {
+  }
+
+  section {
+    margin: rhythm(2) 0;
+
+    h2 {
+      @include adjust-font-size-to($font-size-big);
+    }
+  }
+
+  .project {
+    float: left;
+    width: 45%;
+    margin: rhythm(1.5) 0;
+
+    & + .project {
+      margin-left: 10%;
+    }
+  }
+
+}
