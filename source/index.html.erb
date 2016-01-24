@@ -3,6 +3,133 @@ title: Andreas Böhrnsen - Consulting and Development
 ---
 
 <%= image_tag 'guitar-1400x600.jpg' %>
-<%= partial "about" %>
-<%= partial "projects" %>
-<%= partial "contact" %>
+
+<section class="about">
+  <h2>About Me</h2>
+  <p>
+    Hi there! I'm doing consulting and development for the web and mobile platforms. Currently my family and I reside in Berlin, Germany.
+  </p>
+  <p>
+    The last 7 years I had the opportunity to live outside the country in Northern Europe and South East Asia.
+    I did a lot of support, installations and training for an international operating software company.
+  <p>
+    Coming from a development background I started with PHP and Java, later I was coding mostly with <span id="dev-rails" class="dev">Ruby / Rails</span> for internal projects.
+  </p>
+  <p>
+    End of 2011 I started with <span id="dev-ios" class="dev">iOS</span> development, trying to use as much <span id="dev-html5" class="dev">HTML5</span> as possible to be platform independent.
+  </p>
+    Bringing together my passion for good customer relationships and beautiful functional applications I am happy to offer my services for development, consulting and training.
+  <p>
+    Wanna know more? Check out my <a href="#contact">social links</a> below or <a href="mailto:andreas@frontrunner.io">contact me</a> directly.
+  </p>
+</section>
+
+  <script type="text/template" id="tpl-dev-ios">
+    experience with
+    <ul>
+      <li>CoreData</li>
+      <li>CocoaPods</li>
+      <li>Interface Builder</li>
+    </ul>
+    prefer using <strong>pure code</strong> for maximum flexibility.
+  </script>
+  <script type="text/template" id="tpl-dev-rails">
+    experience with
+    <ul>
+      <li><strong>Rails</strong> (since the "oops" video)</li>
+      <li><strong>Sinatra</strong> (simple file storage app)</li>
+      <li><strong>JRuby</strong> (app in production using Winstone)</li>
+      <li><strong>Devise</strong> (LDAP auth)</li>
+      <li><strong>DelayedJob</strong> (background jobs)</li>
+      <li><strong>RSpec, Cucumber, Capybara</strong></li>
+      <li><strong>EventMachine</strong> (protocol implementation)</li>
+      <li><strong>Chef</strong> (setting up Vagrant boxes)</li>
+    </ul>
+  </script>
+  <script type="text/template" id="tpl-dev-html5">
+    experience with
+    <ul>
+      <li>CoffeeScript / Javascript</li>
+      <li>Handlebars.js</li>
+      <li>AMD, Require.js</li>
+      <li>Grunt, Bower</li>
+      <li>Jasmine</li>
+      <li>XUL</li>
+    </ul>
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      $('#dev-ios').popover({
+        title: "iOS",
+        content: function() {
+          return $('#tpl-dev-ios').html();
+        },
+        html: true,
+        placement: "top",
+        trigger: "hover"
+      });
+
+      $('#dev-rails').popover({
+        title: "Ruby / Rails",
+        content: function() {
+          return $('#tpl-dev-rails').html();
+        },
+        html: true,
+        placement: "top",
+        trigger: "hover"
+      });
+
+      $('#dev-html5').popover({
+        title: "HTML5",
+        content: function() {
+          return $('#tpl-dev-html5').html();
+        },
+        html: true,
+        placement: "top",
+        trigger: "hover"
+      });
+
+    });
+  </script>
+
+<section class="projects">
+  <h2>Open Projects</h2>
+  <p class="col-lg-12">
+    Here is a list of my latest Open Source Projects. Feel free to check out the code to get an idea of my expertise.
+  </p>
+
+  <section class="project">
+    <h4>iOpenSongs</h4>
+    <p>A free guitar sheet viewer fornav-pills  iOS supporting the OpenSong file format.</p>
+    <p>Features native UI and a flexible song renderer using HTML5.</p>
+    <a href="https://github.com/deepflame/iopensongs" target="_blank"><i class="fa fa-github"></i> Source</a>
+    <a href="https://itunes.apple.com/us/app/iopensongs/id501589566?mt=8" target="_blank"><i class="fa fa-apple"></i> App Store</a>
+  </section>
+  <section class="project">
+    <h4>opensong.js</h4>
+    <p>CoffeeScript Library to render guitar sheets. Used in iOpenSongs.</p>
+    <p>Using Handlebars for Templating and Grunt and Bower for packaging and dependencies.</p>
+    <a href="https://github.com/deepflame/opensong.js" target="_blank"><i class="fa fa-github"></i> Source</a>
+    <a href="http://deepflame.github.io/opensong.js/" target="_blank"><i class="fa fa-globe"></i> Demo</a>
+  </section>
+</section>
+
+<section class="contact">
+  <h2>Contact Me</h2>
+  <div class="col-lg-12">
+    <!-- use something else than 'nav' for contact links -->
+    <ul class="nav nav-justified">
+      <li><a href="mailto:andreas@frontrunner.io?subject=Hi!" class="mail"><i class="fa fa-envelope"></i> Mail Me</a></li>
+    </ul>
+  </div>
+  <div class="col-md-12">
+    <ul class="nav nav-justified">
+      <li><a href="https://twitter.com/deepflame"><i class="fa fa-twitter"></i> Twitter</a></li>
+      <li><a href="https://github.com/deepflame"><i class="fa fa-github"></i> Github</a></li>
+      <li><a href="http://www.flickr.com/photos/87288377@N00/"><i class="fa fa-flickr"></i> Flickr</a></li>
+    </ul>
+  </div>
+</section>
+
