@@ -31,9 +31,10 @@ body.blog main {
   }
 
   article + article {
-    margin-top: rhythm(2);
+    margin-top: rhythm(1.5);
     border-top: solid 1px $palette-lightgrey;
     padding-top: rhythm(1.5) - 1px;
+    padding-bottom: rhythm(0.5);
   }
 
 }
