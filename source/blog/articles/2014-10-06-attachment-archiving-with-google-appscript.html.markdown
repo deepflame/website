@@ -9,12 +9,12 @@ Some time ago I stumbled over Google AppScript - a way to automate simple busine
 
 READMORE
 
-### Use Case
+## Use Case
 
 We receive bills from service providers and need to send out invoices to our customers. All (or most) of these documents will be sent as a PDF file attachment.
 When we receive a bill now we will set a specific label to the email thread. After some minutes the attachment will be copied to a folder we specified, fully renamed to the format we wanted.
 
-### The Code
+## The Code
 
 If you are completely new to Google AppScript then you are not lost. There is good [documentation](https://developers.google.com/apps-script/) out there. The great thing is that all AppScripts are pure JavaScript executed on Google server infrastructure. If you are a web developer you do not have a new language to learn.
 
@@ -113,7 +113,7 @@ var moveMailAttachmentsToDriveFolder = function(labelDone) {
 }(LABEL_DONE);
 ```
 
-### Usage
+## Usage
 
 First step is to set the configuration. You need to specify the mail labels you want to process and you need to set the destination where you want your attachments to be put on Google Drive.
 
@@ -121,7 +121,7 @@ You may check how the resulting file will be renamed before it will be put on Go
 
 If you want to run the script automatically make sure to enable the time-driven trigger for it.
 
-### The Future
+## The Future
 
 This script could need some more polishing and attention. This is my _incomplete_ wishlist:
 
@@ -129,12 +129,12 @@ This script could need some more polishing and attention. This is my _incomplete
 1. configurable output file name
 1. configuration in Google Spreadsheet (not sure about this one though)
 
-### Final Thoughts
+## Final Thoughts
 
 I am sure that we will use AppScript more. It just makes sense for web developers and Google Apps users that we both are. The Google AppScript API is well documented and easy to learn.
 We will see how far it goes but I could think that it is possible to support many processes of a small to medium business just with AppScript. There are contacts, calendars, mail, documents, sites and some more. All things that can be used to integrate into a custom workflow.
 
-### Links
+## Links
 
 - https://developers.google.com/apps-script/
 - http://www.googleappsscript.org/ (useful unofficial example site)
