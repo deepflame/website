@@ -1,0 +1,25 @@
+
+body.blog_tags {
+
+  & > main {
+
+    h1 {
+      margin-bottom: rhythm(1);
+
+      em {
+        margin-left: 5px;
+        font-style: italic;
+        text-transform: uppercase;
+      }
+    }
+
+    li {
+      margin-bottom: rhythm(0.5);
+    }
+    time {
+      @include adjust-font-size-to($font-size-small);
+      margin-right: 5px;
+    }
+  }
+
+}
