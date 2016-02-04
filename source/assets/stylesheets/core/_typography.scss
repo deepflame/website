@@ -21,5 +21,4 @@ $rhythm-unit: "px";
 
 // baseline grid (for debugging)
 body {
-	@include baseline-grid($base-line-height);
 }
