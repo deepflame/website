@@ -36,9 +36,9 @@
       "endDate": "",
       "summary": "Consulting and development for webbased systems and mobile apps. Specializing in Ruby on Rails and EmberJS",
       "highlights": [
-        "HR mobile app prototype in EmberJS with Rails API backend",
-        "Custom online shop for a font foundry in Ruby on Rails",
-        "Homepage and company search app implementation - in EmberJS"
+        "Human Resources Mobile App in EmberJS with Rails API backend",
+        "Custom Rails Shop for a Font Foundry",
+        "Homepage and Company Search App implementation in EmberJS"
       ]
     },
     {
@@ -50,7 +50,7 @@
       "summary": "Moved to the Philippines, worked mainly in delivery and development",
       "highlights": [
         "Leading the local development team for 6 months",
-        "Lead Developer of a webbased admin and configuration interface - done in Rails with Eventmachine"
+        "Lead Developer of a webbased admin and configuration interface - done in Rails and Eventmachine"
       ]
     },
     {
