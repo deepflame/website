@@ -15,10 +15,9 @@ body.blog > main {
 
   // code highlighting
   pre.highlight {
-    @include adjust-font-size-to($font-size-small);
-    margin-left: -10px;
-    margin-right: -10px;
-    padding: rhythm(0.5) 10px;
+    @include adjust-font-size-to($font-size-normal);
+    margin-left: -1em;
+    padding: rhythm(0.5) 1em;
   }
   code {
     font-size: inherit;
