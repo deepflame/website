@@ -41,10 +41,10 @@
 
   <ul class="pager">
     <li class="previous">
-      <%= link_to("&larr; #{current_article.previous_article.title}", current_article.previous_article) if current_article.previous_article %>
+      <%= link_to(current_article.previous_article.title, current_article.previous_article, title: current_article.previous_article.title) if current_article.previous_article %>
     </li>
     <li class="next">
-      <%= link_to("#{current_article.next_article.title} &rarr;", current_article.next_article) if current_article.next_article %>
+      <%= link_to(current_article.next_article.title, current_article.next_article, title: current_article.next_article.title) if current_article.next_article %>
     </li>
   </ul>
 
