@@ -20,7 +20,7 @@ body {
     border-bottom: solid 1px $palette-lightgrey;
 
     h1 {
-      @include adjust-font-size-to($font-size-biggest);
+      @include adjust-font-size-to($font-size-bigger);
     }
     h2 {
       @include adjust-font-size-to($font-size-medium);
@@ -37,7 +37,7 @@ body {
       li {
         @include adjust-font-size-to($font-size-normal);
         float: left; // does not add extra space like "display: inline-block"
-        margin-right: rhythm(2);
+        margin-right: 20px;
       }
       a {
         text-decoration: none;
