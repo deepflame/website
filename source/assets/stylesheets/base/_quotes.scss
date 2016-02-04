@@ -1,9 +1,17 @@
 
+// remove quotes
 blockquote, q {
   quotes: none;
   &:before, &:after {
     content: '';
     content: none;
   }
+}
+
+blockquote {
+  $border-width: 2px;
+  margin-left: -10px + $border-width;
+  border-left: solid $border-width;
+  padding-left: 40px;
 }
 
