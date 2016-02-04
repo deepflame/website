@@ -29,17 +29,15 @@
     <%= yield %>
   </article>
 
-  <hr />
-  <div class="text-center">
+  <section class="social">
     Share this post on:
-  </div>
-  <div class="text-center">
-    <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/sharer.php?u=<%=CGI::escape site_article_url.to_s %>&title=<%=CGI::escape current_article.title %>" target="_blank"><i class="fa fa-facebook"></i></a>
-    <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/intent/tweet?text=<%=CGI::escape current_article.title %>&url=<%=CGI::escape site_article_url.to_s %>&via=deepflame" target="_blank"><i class="fa fa-twitter"></i></a>
-    <a class="btn btn-social-icon btn-google-plus" href="http://plus.google.com/share?url=<%=CGI::escape site_article_url.to_s %>" target="_blank"><i class="fa fa-google-plus"></i></a>
-    <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=<%=CGI::escape site_article_url.to_s %>" target="_blank"><i class="fa fa-linkedin"></i></a>
-  </div>
-  <hr />
+    <div class="social__links">
+      <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/sharer.php?u=<%=CGI::escape site_article_url.to_s %>&title=<%=CGI::escape current_article.title %>" target="_blank"><i class="fa fa-facebook"></i></a>
+      <a class="btn btn-social-icon btn-twitter" href="https://twitter.com/intent/tweet?text=<%=CGI::escape current_article.title %>&url=<%=CGI::escape site_article_url.to_s %>&via=deepflame" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a class="btn btn-social-icon btn-google-plus" href="http://plus.google.com/share?url=<%=CGI::escape site_article_url.to_s %>" target="_blank"><i class="fa fa-google-plus"></i></a>
+      <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=<%=CGI::escape site_article_url.to_s %>" target="_blank"><i class="fa fa-linkedin"></i></a>
+    </div>
+  </section>
 
   <ul class="pager">
     <li class="previous">
