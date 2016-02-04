@@ -22,8 +22,10 @@
 <% wrap_layout :layout do %>
 
   <article>
-    <h1><%= current_article.title %></h1>
-    <p class="lead">by Andreas Böhrnsen</p>
+    <h1><%= link_to current_article.title, "/blog" %></h1>
+
+    <%= partial "/blog/header", locals: { article: current_article } %>
+
     <%= yield %>
   </article>
 
