@@ -5,6 +5,6 @@ a {
   transition: color .1s;
 
   &:hover {
-    color: $color-text;
+    color: $color-link--hover;
   }
 }
