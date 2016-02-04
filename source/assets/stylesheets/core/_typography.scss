@@ -14,8 +14,7 @@ $font-size-biggest: ms(4);
 
 // configure vertical-rhythm
 $base-font-size: $font-size-normal;
-$base-line-height: $font-size-normal * $ms-ratio;
-$base-line-height: 23px;
+$base-line-height: $font-size-normal * 1.5;
 $rhythm-unit: "px";
 
 @include establish-baseline;
