@@ -1,9 +1,18 @@
 # Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
+helpers do
+  # font awesome helper
+  def icon(icon, text = nil, html_options = {})
+    text, html_options = nil, text if text.is_a?(Hash)
+
+    content_class = "fa fa-#{icon}"
+    content_class << " #{html_options[:class]}" if html_options.key?(:class)
+    html_options[:class] = content_class
+
+    html = content_tag(:i, nil, html_options)
+    html << ' ' << text.to_s unless text.blank?
+    html
+  end
+end
 
 Time.zone = "UTC" # used for Blog articles
 
