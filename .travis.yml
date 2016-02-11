@@ -12,6 +12,9 @@ env:
   - secure: K8akTYO2+S1c/f6pdlMtH2Zv3TlU8DgQ7lnxmIXor/Zv4QsTKdIgbjyUI7jgiRqKzFkEP/3y2l0byFLwMAGIDBLzTA2yfHXAE7y5/hZWF8XteBea4nB7fqWM8o4xS2lj5mdS4cYHp5HfRQ9bLNt+yFzHlU6TVXRy3pwdVqil9vA=
 sudo: false
 script:
-- bundle exec middleman build
-- bundle exec middleman sync
-- bundle exec middleman invalidate
+  - bundle exec middleman build
+deploy:
+  provider: script
+  script: bundle exec middleman sync && bundle exec middleman invalidate
+  on:
+    branch: master
