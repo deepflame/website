@@ -5,6 +5,9 @@
 @import "vendor/normalize"; // normalize browser styles
 @import "vendor/pygments/solarized";
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 @import "mixins/baseline-grid";
 @import "mixins/clearfix";
 @import "mixins/layout";

@@ -6,6 +6,8 @@ gem "uglifier", "~> 2.5"
 gem "execjs", "~> 2.0"
 gem "sassc", "~> 1.8"
 
+gem 'font-awesome-sass', '~> 4.5.0' # icon font
+
 gem "middleman-blog"
 gem "middleman-syntax"
 gem "middleman-autoprefixer"
