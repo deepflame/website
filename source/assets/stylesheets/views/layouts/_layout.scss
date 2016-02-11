@@ -21,6 +21,9 @@ body {
 
     h1 {
       @include adjust-font-size-to($font-size-bigger);
+      a {
+        color: $color-header;
+      }
     }
     h2 {
       @include adjust-font-size-to($font-size-medium);
