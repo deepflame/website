@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'bundler', '>= 1.8.4' # update bundler for rails assets
+
 gem "middleman-core", "~> 3.4"
 gem "middleman-sprockets", ">= 3.1.2"
 gem "uglifier", "~> 2.5"
