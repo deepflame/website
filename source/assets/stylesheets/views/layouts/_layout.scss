@@ -56,16 +56,39 @@ body {
   & > footer {
     @include container;
     @include clearfix;
+    @include adjust-font-size-to($font-size-small);
 
+    position: relative;
     min-height: rhythm(3);
     border-top: 1px solid $palette-lightgrey;
-    padding-top: rhythm(0.5) - 1px;
+    padding-top: rhythm(1.5) - 1px;
+    padding-bottom: rhythm(1.5);
+
+    line-height: rhythm(1.5);
 
     .copyright {
       float: left;
     }
     .links {
-      float: right;
+      float: left;
+      a {
+        float: left; // to remove inline space
+        margin-left: 30px;
+      }
+    }
+    .social {
+      @include adjust-font-size-to($font-size-medium);
+      position: absolute;
+      top: rhythm(1.5) - 4px; // 2px looks better
+      right: 0;
+
+      ul {
+        @include clearfix;
+      }
+      li {
+        float: left;
+        margin-left: 30px;
+      }
     }
   }
 }

@@ -37,11 +37,18 @@
       <%= yield %>
     </main>
     <footer>
-      <div class="copyright">&copy; Andreas Böhrnsen 2013 - 2016</div>
-      <div class="links">
-        <%= link_to "Imprint / Impressum", "/imprint.html" %> |
-        <%= link_to "Privacy Statement", "/privacy.html" %>
-      </div>
+      <section class="copyright">&copy; Andreas Böhrnsen 2013 - 2016</section>
+      <section class="links">
+        <%= link_to "Imprint", "/imprint.html" %>
+        <%= link_to "Privacy", "/privacy.html" %>
+      </section>
+      <section class="social">
+        <ul>
+          <li><a href="https://twitter.com/deepflame"><%= icon "twitter" %></a></li>
+          <li><a href="https://github.com/deepflame"><%= icon "github" %></a></li>
+          <li><a href="https://de.linkedin.com/in/andreasboehrnsen"><%= icon "linkedin" %></a></li>
+        </ul>
+      </section>
     </footer>
 
     <%= javascript_include_tag "all" %>
