@@ -269,6 +269,7 @@ PLATFORMS
 
 DEPENDENCIES
   execjs (~> 2.0)
+  font-awesome-sass (~> 4.5.0)
   middleman-autoprefixer
   middleman-blog
   middleman-cloudfront
