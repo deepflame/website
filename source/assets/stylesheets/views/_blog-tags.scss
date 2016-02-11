@@ -18,7 +18,8 @@ body.blog_tags {
     }
     time {
       @include adjust-font-size-to($font-size-small);
-      margin-right: 5px;
+      display: inline-block;
+      width: 100px;
     }
   }
 

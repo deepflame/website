@@ -22,4 +22,16 @@ body.index main {
     }
   }
 
+  .contact {
+    padding-top: rhythm(2); // like footer distance
+    text-align: center;
+
+    .mail {
+      @include adjust-font-size-to($font-size-big);
+      padding: 10px 25px;
+      border: solid 1px;
+      border-radius: 20px;
+    }
+  }
+
 }
