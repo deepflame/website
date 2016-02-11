@@ -16,6 +16,7 @@ $font-size-biggest: ms(4);
 $base-font-size: $font-size-normal;
 $base-line-height: $font-size-normal * 1.5;
 $rhythm-unit: "px";
+$round-to-nearest-half-line: true;
 
 @include establish-baseline;
 
