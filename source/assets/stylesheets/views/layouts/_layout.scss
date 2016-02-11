@@ -79,7 +79,7 @@ body {
     .social {
       @include adjust-font-size-to($font-size-medium);
       position: absolute;
-      top: rhythm(1.5) - 4px; // 2px looks better
+      top: rhythm(1.5) - 4px; // put it on same line
       right: 0;
 
       ul {
