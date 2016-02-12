@@ -31,11 +31,14 @@ body {
     }
 
     nav {
-      position: absolute;
-      top: 0;
-      right: 0;
-
       margin-top: rhythm(1);
+
+      // desktop: position right
+      @media (min-width: 550px) {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
 
       li {
         @include adjust-font-size-to($font-size-normal);
