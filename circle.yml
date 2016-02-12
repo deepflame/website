@@ -1,9 +1,6 @@
 general:
   artifacts:
     - "build.tar.gz"
-dependencies:
-  cache_directories:
-    - "build"
 test:
   override:
     - bundle exec middleman build
