@@ -15,6 +15,6 @@ script:
   - bundle exec middleman build
 deploy:
   provider: script
-  script: bundle exec middleman sync && bundle exec middleman invalidate
+  script: ./bin/deploy.sh
   on:
     branch: master
