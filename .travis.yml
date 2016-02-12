@@ -13,6 +13,8 @@ env:
 sudo: false
 script:
   - bundle exec middleman build
+  - bundle exec middleman sync
+  - bundle exec middleman invalidate
 deploy:
   provider: script
   script: ./bin/deploy.sh
