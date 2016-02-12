@@ -1,0 +1,37 @@
+
+body.index main {
+
+  img {
+  }
+
+  section {
+    margin: rhythm(2) 0;
+
+    h2 {
+      @include adjust-font-size-to($font-size-big);
+    }
+  }
+
+  .project {
+    float: left;
+    width: 45%;
+    margin: rhythm(1.5) 0;
+
+    & + .project {
+      margin-left: 10%;
+    }
+  }
+
+  .contact {
+    padding-top: rhythm(2); // like footer distance
+    text-align: center;
+
+    .mail {
+      @include adjust-font-size-to($font-size-big);
+      padding: 10px 25px;
+      border: solid 1px;
+      border-radius: 20px;
+    }
+  }
+
+}

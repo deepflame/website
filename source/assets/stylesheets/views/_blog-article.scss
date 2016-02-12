@@ -1,0 +1,74 @@
+
+body.blog > main {
+
+  article {
+    padding-bottom: rhythm(3) - 1px;
+    border-bottom: solid 1px $palette-lightgrey;
+    margin-bottom: rhythm(1);
+  }
+
+  // like Youtube embeds
+  iframe {
+    display: block;
+    margin: 0 auto;
+  }
+
+  // code highlighting
+  pre.highlight {
+    @include adjust-font-size-to($font-size-normal);
+    margin-left: -1em;
+    padding: rhythm(0.5) 1em;
+  }
+  code {
+    font-size: inherit;
+    line-height: inherit;
+    white-space: pre-wrap;
+  }
+
+  .social {
+    display: none;
+    margin-top: rhythm(1);
+    margin-bottom: rhythm(1);
+    border-top: 1px solid $palette-lightgrey;
+    border-bottom: 1px solid $palette-lightgrey;
+    padding-top: rhythm(1) - 1px;
+    padding-bottom: rhythm(1) - 1px;
+  }
+
+  .pager {
+    @include clearfix;
+
+    .previous, .next {
+      position: relative;
+      max-width: 48%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      a:before, a:after {
+        position: absolute;
+        top: -1px;
+      }
+    }
+    .previous {
+      float: left;
+      padding-left: 20px;
+
+      a:before {
+        content: '<-';
+        left: 0;
+      }
+    }
+    .next {
+      float: right;
+      padding-right: 20px;
+
+      a:after {
+        content: '->';
+        right: 0;
+      }
+    }
+  }
+
+}
+

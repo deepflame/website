@@ -1,20 +1,13 @@
 <% blog.articles.each do |article| %>
-<div class="article">
-  <h3 class=""><%= link_to article.title, article %></h3>
+  <article>
+    <h1><%= link_to article.title, article %></h1>
 
-  <span class="text-muted"><%= article.date.strftime('%b. %e %Y') %></span>
+    <%= partial "header", locals: { article: article } %>
 
-  <div class="tag-list">
-    <ul class="list-inline">
-    <% article.tags.each do |tag| %>
-      <li><%= link_to tag, tag_path(tag) %></li>
-    <% end %>
-    </ul>
-  </div>
-
-  <div>
-    <%= strip_tags article.summary %>
-  </div>
-</div>
+    <main>
+      <%= strip_tags article.summary %>
+      <%= link_to "Read more", article %>
+    </main>
+  </article>
 <% end %>
 

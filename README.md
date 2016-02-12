@@ -5,9 +5,8 @@
 Crafted using
 
 - Middleman
-- Bootstrap 3
-- Font Awesome
 - Sass
+- Font Awesome
 
 Deployed on S3 with Cloudfront caching.
 

@@ -2,7 +2,32 @@
 title: Andreas Böhrnsen - Consulting and Development
 ---
 
-<%= image_tag 'guitar-1400x600.jpg', id: "main-image", class: "img-responsive", width: 700, height: 300 %>
-<%= partial "about" %>
-<%= partial "projects" %>
-<%= partial "contact" %>
+<%= image_tag 'guitar-1400x600.jpg' %>
+
+<section class="about">
+  <h2>About Me</h2>
+  <p>
+    Hi there! I'm doing consulting and development for the web and mobile platforms, focussing on Ruby on Rails, EmberJS and Phoenix Framework.
+  </p>
+  <p>
+    Currently my family and I reside in Berlin, Germany.
+  </p>
+  <p>
+    The last 7 years I had the opportunity to live outside the country in Northern Europe and South East Asia.
+    I did a lot of support, installations and training for an international operating software company.
+  <p>
+    Coming from a development background I started with PHP and Java, later I was coding mostly with <span id="dev-rails" class="dev">Ruby / Rails</span> for internal projects.
+  </p>
+  <p>
+    End of 2011 I started with <span id="dev-ios" class="dev">iOS</span> development, trying to use as much <span id="dev-html5" class="dev">HTML5</span> as possible to be platform independent.
+  </p>
+    Bringing together my passion for good customer relationships and beautiful functional applications I am happy to offer my services for development, consulting and training.
+  <p>
+    Wanna know more? Check out my social links in the footer or contact me directly.
+  </p>
+</section>
+
+<section class="contact">
+   <a href="mailto:andreas@frontrunner.io?subject=Hi!" class="mail"><%= icon "envelope", "Contact Me" %></a>
+</section>
+

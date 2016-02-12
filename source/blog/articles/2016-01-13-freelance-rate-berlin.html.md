@@ -7,7 +7,7 @@ tags: freelancing
 Lately I had discussions again about freelance rates for developers here in Berlin. "Freelance rates are so high! I rather have a full time employee.". Well, are freelancers really that expensive?
 Let's calculate the expenses of a full time employee and compare this to a freelancer, shall we?
 
-### Expenses for a fulltime employee
+## Expenses for a fulltime employee
 
 Currently the yearly wage of a software engineer here in Berlin is [around 50k EUR][a] gross, seniors [earning around][b] [10k more][c].
 This is what the employee will receive gross, minus tax and insurances. The employer has his own share that he needs to pay in addition. That would be around 21% on top.
@@ -29,7 +29,7 @@ Plus all the extras:
 
 Surely some also apply to freelancers if they work at the customer site.
 
-### Equivilent daily and hourly rates
+## Equivilent daily and hourly rates
 
 To compare a bit better let's calculate the equivilent daily and hourly rate.
 
@@ -63,7 +63,7 @@ If we have 8 daily working hours we get an hourly rate of:
 
 That is true, and they do it for `a good reason`. This is an hourly rate of someone working `productively for 8 hours EVERY day`! Generating value for the company every minute he or she is at work. We all know that `this is not the case`.
 
-### Productive hours only
+## Productive hours only
 
 So the question arises:
 
@@ -82,7 +82,7 @@ So, if a freelancer would/could invoice 4 hours of productive work every day he 
 
 And this is for working every day, and even a full time employee is not productive every day. He may get side tracked by other "shiny things" that employers at the end pay for. But this is a different story...
 
-### Worth the money
+## Worth the money
 
 So, `don't be surprised` when freelancers ask for 60 - 90 EUR/hour.
 

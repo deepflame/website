@@ -1,91 +1,68 @@
-<!DOCTYPE html>
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>
+      <%=h current_page.data.title || "Frontrunner Software" %>
+    </title>
+    <meta name="description" content="Frontrunner Software - Web / Mobile Consultancy and Software Development">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Andreas Böhrnsen">
+    <%= yield_content :meta_tags %>
+    <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
 
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-<title>
-  <%=h current_page.data.title || "Andreas Böhrnsen" %>
-</title>
-<meta name="author" content="Andreas Böhrnsen">
-<meta name="description" content="Personal Website of Andreas Böhrnsen - Consultant and Developer">
-<%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
-<%= yield_content :meta_tags %>
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.2.1/bootstrap-social.min.css">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
 
-<%= stylesheet_link_tag "all" %>
-<%= stylesheet_link_tag "pygments/tomorrow_night.css" %>
+    <%= stylesheet_link_tag "all" %>
+    <%= javascript_include_tag "modernizr" %>
+  </head>
+  <body class="<%= page_classes %>">
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-<%= stylesheet_link_tag "github-fork-ribbon/gh-fork-ribbon.css" %>
-<!--[if lt IE 9]>
-  <%= stylesheet_link_tag "github-fork-ribbon/gh-fork-ribbon.ie.css" %>
-<![endif]-->
+    <header>
+      <h1><%= link_to "Andreas Böhrnsen", "/" %></h1>
+      <h2>Consulting and Development</h2>
+      <nav>
+        <ul>
+          <li><%= link_to "Home", "/" %></li>
+          <li><%= link_to "Blog", "/blog" %></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <section class="copyright">&copy; Andreas Böhrnsen 2013 - 2016</section>
+      <section class="links">
+        <%= link_to "Imprint", "/imprint.html" %>
+        <%= link_to "Privacy", "/privacy.html" %>
+      </section>
+      <section class="social">
+        <ul>
+          <li><a href="https://twitter.com/deepflame"><%= icon "twitter" %></a></li>
+          <li><a href="https://github.com/deepflame"><%= icon "github" %></a></li>
+          <li><a href="https://de.linkedin.com/in/andreasboehrnsen"><%= icon "linkedin" %></a></li>
+        </ul>
+      </section>
+    </footer>
 
-<script src="https://code.jquery.com/jquery.js"></script>
-</head>
+    <%= javascript_include_tag "all" %>
+    <%= javascript_include_tag "holder" %>
 
-<body class="<%= page_classes %>">
+    <!-- Google Analytics, use Piwik later -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-<!-- TOP RIGHT RIBBON -->
-<div class="github-fork-ribbon-wrapper right">
-  <div class="github-fork-ribbon">
-    <a href="mailto:anb@code-wemo.com?subject=Interested&nbsp;in&nbsp;working&nbsp;with&nbsp;you">Work with me!</a>
-  </div>
-</div>
-<!-- TOP RIGHT RIBBON -->
-
-<div class="container">
-
-  <div class="page-header">
-    <ul class="nav nav-pills pull-right">
-      <li><%= link_to "Home", "/" %></li>
-      <li><%= link_to "Blog", "/blog" %></li>
-    </ul>
-    <h1>Andreas Böhrnsen</h1>
-    <p class="lead text-muted">Consulting and Development</p>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-12">
-    <%= yield %>
-    </div>
-  </div>
-
-  <div class="footer">
-    <p class="pull-left">&copy; Andreas Böhrnsen 2013 - 2014</p>
-    <p class="pull-right">
-      <%= link_to "Imprint / Impressum", "/imprint.html" %> | 
-      <%= link_to "Privacy Statement", "/privacy.html" %>
-    </p>
-  </div>
-
-</div> <!-- /container -->
-
-
-<% javascript_include_tag "holder" %>
-<% javascript_include_tag "all" %>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-<!-- Google Analytics, use Piwik later -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
- (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
- m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
- })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-42927977-1', 'boehrnsen.de');
-ga('send', 'pageview');
-</script>
-</body>
+      //ga('create', 'UA-xxxxxxxx-x', 'boehrnsen.de');
+      //ga('send', 'pageview');
+    </script>
+  </body>
 </html>
