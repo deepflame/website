@@ -7,7 +7,7 @@ dependencies:
 test:
   override:
     - bundle exec middleman build
-    - tar -czvf build.tar.gz build
+    - tar -czvf $CIRCLE_ARTIFACTS/build.tar.gz build
 deployment:
   production:
     branch: master
