@@ -1,6 +1,6 @@
 # Personal Website
 
-[![Build Status](https://travis-ci.org/deepflame/website.svg?branch=master)](https://travis-ci.org/deepflame/website)
+[![Circle CI](https://circleci.com/gh/deepflame/website/tree/master.svg?style=svg)](https://circleci.com/gh/deepflame/website/tree/master)
 
 Crafted using
 
