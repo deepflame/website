@@ -1,0 +1,16 @@
+general:
+  artifacts:
+    - "build.tar.gz"
+dependencies:
+  cache_directories:
+    - "build"
+test:
+  override:
+    - bundle exec middleman build
+    - tar -czvf build.tar.gz build
+deployment:
+  production:
+    branch: master
+    commands:
+      - bundle exec middleman sync
+      - bundle exec middleman invalidate
