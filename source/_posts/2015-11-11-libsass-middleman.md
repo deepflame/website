@@ -15,10 +15,7 @@ Here is how.
 
 Digging into the Middleman gem I found that the 'main' gem is just a package of other gems. Running `bundle viz` I got the following image:
 
-<% link_to "2015-11-11-libsass-middleman/gem_graph.svg", target: '_blank' do %>
-  <%= image_tag '2015-11-11-libsass-middleman/gem_graph.svg' %>
-<% end %>
-(click to enlarge)
+{% asset_img gem_graph.svg "Build Matrix" %}
 
 The same can be seen in the source code. It [only requires middleman-core](https://github.com/middleman/middleman/blob/v3-stable/middleman/lib/middleman.rb) and [includes a bunch of gems in the spec file](https://github.com/middleman/middleman/blob/v3-stable/middleman/middleman.gemspec):
 

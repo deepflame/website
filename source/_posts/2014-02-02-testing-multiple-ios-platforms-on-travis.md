@@ -96,7 +96,7 @@ script:
 
 That gave me the following output:
 
-![Build Matrix][3]
+{% asset_img build_matrix.jpg "Build Matrix" %}
 
 This is very useful feedback! As you can see the first platform failed (iOS 5.1 on iPad).  
 Thanks to Travis it makes testing on multiple platforms really easy.
@@ -106,4 +106,3 @@ Let me know how it goes.
 
   [1]: http://docs.travis-ci.com/user/languages/objective-c/
   [2]: https://github.com/facebook/xctool
-  [3]: 2014-02-02-testing-multiple-ios-platforms-on-travis/build_matrix.jpg

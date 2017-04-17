@@ -242,7 +242,7 @@ To access the screenshots you could use a GUI tool like [Cyberduck][6] or [s3cmd
 
 Here is a screenshot using Cyberduck. You can see that the filename reflects in which file and line the test failed.
 
-![Cyberduck][7]
+{% asset_img cyberduck.png "Cyberduck" %}
 
 For your reference here is the full `.travis.yml`
 
@@ -275,6 +275,5 @@ Enjoy!
 [4]: http://cocoapods.org/
 [5]: http://s3tools.org/s3cmd
 [6]: http://cyberduck.io/
-[7]: 2014-02-05-dont-be-blind-when-kif-fails-on-travis/cyberduck.png
 [8]: http://andreas.boehrnsen.de/blog/2014/02/testing-multiple-ios-platforms-on-travis/
 [9]: http://aws.amazon.com/s3/
