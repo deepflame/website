@@ -6,7 +6,7 @@
 title: Hexo
 subtitle:
 description:
-author: John Doe
+author: Andreas Böhrnsen
 language:
 timezone:
 
@@ -28,13 +28,13 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :title.md # File name of new posts
+new_post_name: :year-:month-:day-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true # default false
 relative_link: false
 future: true
 highlight:
@@ -53,7 +53,7 @@ tag_map:
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
-time_format: HH:mm:ss
+time_format: HH:mm UTC  # default HH:mm:ss
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -71,6 +71,13 @@ deploy:
   type:
 
 # Plugins
+
+## Sass
+node_sass:
+  outputStyle: nested
+  precision: 5
+  sourceComments: false
+
 ## Autoprefixer
 autoprefixer:
   exclude:
