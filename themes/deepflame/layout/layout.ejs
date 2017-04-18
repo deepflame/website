@@ -15,9 +15,8 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
 
-    <%# stylesheet_link_tag "all" %>
     <%- css('assets/stylesheets/all') %>
-    <%# javascript_include_tag "modernizr" %>
+    <%- js('assets/javascripts/modernizr') %>
   </head>
   <body class="<%# page_classes %>">
     <!--[if lt IE 8]>
@@ -25,12 +24,12 @@
     <![endif]-->
 
     <header>
-      <h1><%# link_to "Andreas Böhrnsen", "/" %></h1>
+      <h1><%- link_to('/', "Andreas Böhrnsen") %></h1>
       <h2>Consulting and Development</h2>
       <nav>
         <ul>
-          <li><%# link_to "Home", "/" %></li>
-          <li><%# link_to "Blog", "/blog" %></li>
+          <li><%- link_to('/', "Home") %></li>
+          <li><%- link_to('/blog', "Blog") %></li>
         </ul>
       </nav>
     </header>
@@ -38,10 +37,10 @@
       <%- body %>
     </main>
     <footer>
-      <section class="copyright">&copy; Andreas Böhrnsen 2013 - 2016</section>
+      <section class="copyright">&copy; Andreas Böhrnsen 2013 - <%- date(Date.now(), 'YYYY') %></section>
       <section class="links">
-        <%# link_to "Imprint", "/imprint.html" %>
-        <%# link_to "Privacy", "/privacy.html" %>
+        <%- link_to('imprint', 'Imprint') %>
+        <%- link_to('privacy', 'Privacy') %>
       </section>
       <section class="social">
         <ul>
@@ -52,8 +51,8 @@
       </section>
     </footer>
 
-    <%# javascript_include_tag "all" %>
-    <%# javascript_include_tag "holder" %>
+    <%- js('assets/javascripts/all') %>
+    <%- js('assets/javascripts/holder') %>
 
     <!-- Google Analytics, use Piwik later -->
     <script type="text/javascript">
