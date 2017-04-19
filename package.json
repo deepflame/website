@@ -11,7 +11,7 @@
     "version": "3.3.1"
   },
   "dependencies": {
-    "hexo": "^3.2.0",
+    "hexo": "^3.3.0",
     "hexo-admin": "^2.2.1",
     "hexo-autoprefixer": "^1.0.0",
     "hexo-browsersync": "^0.2.0",
@@ -23,7 +23,7 @@
     "hexo-generator-tag": "^0.2.0",
     "hexo-renderer-ejs": "^0.3.0",
     "hexo-renderer-jade": "^0.3.0",
-    "hexo-renderer-marked": "^0.2.10",
+    "hexo-renderer-marked": "^0.3.0",
     "hexo-renderer-scss": "^1.0.2",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0"
