@@ -90,3 +90,7 @@ autoprefixer:
     - '*.min.css'
   browsers:
     - 'last 2 versions'
+
+## hexo-browsersync
+browsersync:
+  notify: false # Don't show any notifications in the browser.
