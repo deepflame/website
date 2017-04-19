@@ -1,0 +1,9 @@
+<header>
+  <time pubdate datetime="<%# article.date.strftime('%Y-%M-%d') %>"><%# article.date.strftime('%b. %e %Y') %></time>
+  <ul class="tags">
+    <% article.tags.each(function (tag) { %>
+      <li><%- link_to(tag.path, tag.name) %></li>
+    <% }); %>
+  </ul>
+</header>
+
