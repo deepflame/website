@@ -2,6 +2,7 @@
 title: Discussing Freelance Rates
 date: 2016-01-13 10:20 UTC
 tags: freelancing
+published: false
 ---
 
 Lately I had discussions again about freelance rates for developers here in Berlin. "Freelance rates are so high! I rather have a full time employee.". Well, are freelancers really that expensive?
