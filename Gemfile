@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.2.3'
+
 gem "middleman-core", "~> 3.4"
 gem "middleman-sprockets", ">= 3.1.2"
 gem "uglifier", "~> 2.5"
