@@ -13,6 +13,9 @@
 # bundler stubs and gems
 /vendor/bundle
 
+# node packages
+/node_modules
+
 # build directory
 /build
 
