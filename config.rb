@@ -79,7 +79,7 @@ end
 # Development-specific configuration
 configure :development do
   activate :dotenv
-  activate :livereload
+  activate :livereload, js_host: 'localhost', apply_css_live: true
 end
 
 # Build-specific configuration
