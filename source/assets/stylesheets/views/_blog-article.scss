@@ -41,11 +41,10 @@ body.blog > main {
     .previous, .next {
       position: relative;
       max-width: 48%;
-      overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
 
-      a:before, a:after {
+      &:before, &:after {
         position: absolute;
         top: -1px;
       }
@@ -54,7 +53,7 @@ body.blog > main {
       float: left;
       padding-left: 20px;
 
-      a:before {
+      &:before {
         content: '<-';
         left: 0;
       }
@@ -63,7 +62,7 @@ body.blog > main {
       float: right;
       padding-right: 20px;
 
-      a:after {
+      &:after {
         content: '->';
         right: 0;
       }
