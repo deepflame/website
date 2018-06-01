@@ -18,8 +18,7 @@ body {
     position: relative;
     min-height: rhythm(4);
     margin-top: rhythm(2);
-    padding-bottom: rhythm(1) - 1px;
-    border-bottom: solid 1px $palette-lightgrey;
+    padding-bottom: rhythm(1);
 
     h1 {
       @include adjust-font-size-to($font-size-bigger);
@@ -71,35 +70,62 @@ body {
 
     position: relative;
     min-height: rhythm(3);
-    border-top: 1px solid $palette-lightgrey;
     padding-top: rhythm(1.5) - 1px;
     padding-bottom: rhythm(1.5);
 
     line-height: rhythm(1.5);
 
+    // TODO: remove floats and use flexbox
     .copyright {
       float: left;
     }
     .links {
       float: left;
-      a {
-        float: left; // to remove inline space
+      margin-left: 30px;
+      a + a {
         margin-left: 30px;
       }
     }
     .social {
       @include adjust-font-size-to($font-size-medium);
-      position: absolute;
+      float: right;
       top: rhythm(1.5) - 4px; // put it on same line
-      right: 0;
 
       ul {
         @include clearfix;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        max-width: 200px;
+        margin: 0 auto;
       }
-      li {
-        float: left;
+      li + li {
         margin-left: 30px;
       }
     }
+
+    .copyright,
+    .links,
+    .social {
+      @media (max-width: 720px) {
+        float: inherit;
+        margin-left: 0;
+        text-align: center;
+      }
+    }
+  }
+
+  & > header::after,
+  & > footer::before {
+    position: absolute;
+    width: calc(100% - #{$layout-container-padding * 2});
+    height: 1px;
+    background-color: $palette-lightgrey;
+  }
+  & > header::after {
+    bottom: -1px;
+  }
+  & > footer::before {
+    top: -1px;
   }
 }
