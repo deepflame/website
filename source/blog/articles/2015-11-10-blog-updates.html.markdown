@@ -1,6 +1,7 @@
 ---
 title: No Blog updates?
 tags: blog, middleman
+published: false
 ---
 
 What happened? There are no recent posts!
