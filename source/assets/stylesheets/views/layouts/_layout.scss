@@ -1,11 +1,13 @@
 
 body {
+  //background-color: $palette-lightergrey;
+  background-color: $palette-white;
 
   // browser update prompt
   .browserupgrade {
     margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
+    background: $palette-lightgrey;
+    color: $palette-black;
     padding: 0.2em 0;
   }
 
@@ -14,7 +16,7 @@ body {
     @include clearfix;
 
     position: relative;
-    min-height: rhythm(5);
+    min-height: rhythm(4);
     margin-top: rhythm(2);
     padding-bottom: rhythm(1) - 1px;
     border-bottom: solid 1px $palette-lightgrey;
@@ -23,6 +25,9 @@ body {
       @include adjust-font-size-to($font-size-bigger);
       a {
         color: $color-header;
+        &:hover {
+          border-bottom: 0;
+        }
       }
     }
     h2 {

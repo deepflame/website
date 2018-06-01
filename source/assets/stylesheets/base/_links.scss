@@ -6,5 +6,7 @@ a {
 
   &:hover {
     color: $color-link--hover;
+    padding-bottom: 2px;
+    border-bottom: solid 1px $color-link--hover;
   }
 }
