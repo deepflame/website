@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-ruby '2.2.3'
+ruby '~> 2.4.0'
 
 gem "middleman-core", "~> 3.4"
 gem "middleman-sprockets", ">= 3.1.2"
 gem "uglifier", "~> 2.5"
 gem "execjs", "~> 2.0"
-gem "sassc", "~> 1.8"
+gem "sassc"
 
 gem 'font-awesome-sass', '~> 4.5.0' # icon font
 
@@ -35,4 +35,3 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-modular-scale' # typographic scaling
   gem 'rails-assets-responsive-nav'
 end
-

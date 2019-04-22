@@ -1,5 +1,13 @@
 {
   "scripts": {
-    "start": "docker-compose up"
-  }
+    "start": "bundle exec middleman server"
+  },
+  "name": "website",
+  "description": "[![Circle CI](https://circleci.com/gh/deepflame/website/tree/master.svg?style=svg)](https://circleci.com/gh/deepflame/website/tree/master)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepflame/website.git"
+  },
+  "author": "Andreas Böhrnsen",
+  "homepage": "https://github.com/deepflame/website#readme"
 }
