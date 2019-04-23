@@ -12,6 +12,10 @@ helpers do
     html << ' ' << text.to_s unless text.blank?
     html
   end
+
+  def enable_commenting?
+    false
+  end
 end
 
 Time.zone = "UTC" # used for Blog articles
@@ -79,7 +83,10 @@ end
 # Development-specific configuration
 configure :development do
   activate :dotenv
-  activate :livereload, js_host: 'localhost', apply_css_live: true
+  activate :livereload,
+    js_host: gitpod? ? gitpod_host(port: 35729) : '127.0.0.1',
+    js_port: gitpod? ? 443 : 35729,
+    apply_css_live: true
 end
 
 # Build-specific configuration
@@ -92,5 +99,15 @@ configure :build do
   activate :asset_hash
   activate :relative_assets
   ignore '**/LICENSE'
+end
+
+# private
+
+def gitpod?
+  ENV['GITPOD_WORKSPACE_ID']
+end
+
+def gitpod_host(port:)
+  `gp url #{port}`.gsub("https://", '').gsub("\n", '')
 end
 
