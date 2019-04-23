@@ -2,4 +2,5 @@ ports:
 - port: 4567
 - port: 35729
 tasks:
-- command: rvm use 2.4; bundle install --path vendor/bundle; bundle exec middleman server
+- before: rvm use 2.4; bundle install
+- command: bundle exec middleman server
