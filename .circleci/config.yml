@@ -31,7 +31,7 @@ jobs:
       - run:
           name: Build
           command: |
-            bundle exec middleman bulid
+            bundle exec middleman build
 
       - run:
           name: Deploy
