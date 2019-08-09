@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "bundle exec middleman server"
+    "start": "bundle exec middleman server",
+    "build": "bundle exec middleman build"
   },
   "name": "website",
   "description": "[![Circle CI](https://circleci.com/gh/deepflame/website/tree/master.svg?style=svg)](https://circleci.com/gh/deepflame/website/tree/master)",
@@ -9,5 +10,12 @@
     "url": "git+https://github.com/deepflame/website.git"
   },
   "author": "Andreas Böhrnsen",
-  "homepage": "https://github.com/deepflame/website#readme"
+  "homepage": "https://github.com/deepflame/website#readme",
+  "devDependencies": {
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.4.1",
+    "modernizr": "^3.7.1",
+    "modularscale-sass": "^3.0.8",
+    "responsive-nav": "^1.0.39"
+  }
 }

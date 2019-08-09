@@ -1,6 +1,6 @@
-FROM ruby:2.2.3
+FROM ruby:2.6.2
 
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
+RUN apt-get update -qq && apt-get install -y build-essential nodejs
 RUN mkdir /site
 WORKDIR /site
 ADD Gemfile /site/Gemfile

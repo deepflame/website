@@ -20,9 +20,10 @@ end
 
 Time.zone = "UTC" # used for Blog articles
 
-set :css_dir, 'assets/stylesheets'
-set :js_dir, 'assets/javascripts'
-set :images_dir, 'assets/images'
+config[:css_dir] = 'assets/stylesheets'
+config[:js_dir] = 'assets/javascripts'
+config[:images_dir] = 'assets/images'
+config[:fonts_dir] = 'assets/fonts'
 
 activate :blog do |blog|
   blog.prefix = "blog"
@@ -83,10 +84,9 @@ end
 # Development-specific configuration
 configure :development do
   activate :dotenv
-  activate :livereload,
-    js_host: gitpod? ? gitpod_host(port: 35729) : '127.0.0.1',
-    js_port: gitpod? ? 443 : 35729,
-    apply_css_live: true
+  activate :livereload, apply_css_live: true
+    #js_host: gitpod? ? gitpod_host(port: 35729) : '127.0.0.1',
+    #js_port: gitpod? ? 443 : 35729
 end
 
 # Build-specific configuration
