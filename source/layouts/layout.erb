@@ -28,8 +28,9 @@
       <h2>Consulting and Development</h2>
       <nav>
         <ul>
-          <li><%= link_to "Home", "/" %></li>
-          <li><%= link_to "Blog", "/blog" %></li>
+          <% data.navigation.main.each do |n| %>
+            <li><%= link_to n.title, n.href %></li>
+          <% end %>
         </ul>
       </nav>
     </header>
@@ -39,14 +40,15 @@
     <footer>
       <section class="copyright">&copy; Andreas Böhrnsen 2013 - <%= Date.today.year %></section>
       <section class="links">
-        <%= link_to "Imprint", "/imprint.html" %>
-        <%= link_to "Privacy", "/privacy.html" %>
+        <% data.navigation.sub.each do |n| %>
+          <%= link_to n.title, n.href %>
+        <% end %>
       </section>
       <section class="social">
         <ul>
-          <li><a href="https://twitter.com/deepflame"><%= icon "twitter" %></a></li>
-          <li><a href="https://github.com/deepflame"><%= icon "github" %></a></li>
-          <li><a href="https://de.linkedin.com/in/andreasboehrnsen"><%= icon "linkedin" %></a></li>
+        <% data.navigation.social.each do |n| %>
+          <li><a href="<%= n.href %>"><%= icon n.icon %></a></li>
+        <% end %>
         </ul>
       </section>
     </footer>

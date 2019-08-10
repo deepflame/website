@@ -1,0 +1,24 @@
+main:
+  - title: Home
+    href: /
+  - title: Projects
+    href: /projects
+  - title: Services
+    href: /services
+  - title: Blog
+    href: /blog
+
+sub:
+  - title: Imprint
+    href: /impring.html
+  - title: Privacy
+    href: /privacy.html
+
+social:
+  - icon: twitter
+    href: https://twitter.com/deepflame
+  - icon: github
+    href: https://github.com/deepflame
+  - icon: linkedin
+    href: https://de.linkedin.com/in/andreasboehrnsen
+
