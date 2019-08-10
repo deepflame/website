@@ -13,6 +13,7 @@ helpers do
     html
   end
 
+
   def enable_commenting?
     false
   end
@@ -24,6 +25,13 @@ config[:css_dir] = 'assets/stylesheets'
 config[:js_dir] = 'assets/javascripts'
 config[:images_dir] = 'assets/images'
 config[:fonts_dir] = 'assets/fonts'
+
+postcss_command = './node_modules/.bin/postcss source/assets/stylesheets/tailwind.pcss --output .tmp/postcss/stylesheets/tailwind.css'
+activate :external_pipeline,
+  name: :postcss,
+  command: build? ?  postcss_command : "#{postcss_command} --watch",
+  source: ".tmp/postcss",
+  latency: 1
 
 activate :blog do |blog|
   blog.prefix = "blog"

@@ -19,9 +19,10 @@
 # build directory
 /build
 
-# Sass' cache
+# style cache
 /.sass-cache
 /.cache/
+/.tmp
 
 # .DS_store file
 .DS_Store
