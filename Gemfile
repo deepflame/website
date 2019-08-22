@@ -21,3 +21,6 @@ gem "middleman-s3_sync"
 
 # invalidate Cloudfront Cache
 gem "middleman-cloudfront"
+
+gem 'solargraph', group: :development
+
