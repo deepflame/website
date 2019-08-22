@@ -1,0 +1,18 @@
+name: website
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - nvim
+        -
+  - server:
+      layout: even-vertical
+      panes:
+        - yarn start
+        -
+  - git:
+      layout: even-vertical
+      panes:
+        - lazygit
+        -
