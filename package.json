@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "bundle exec middleman server",
-    "build": "bundle exec middleman build"
+    "build": "bundle exec middleman build",
+    "post":  "bundle exec middleman article "
   },
   "name": "website",
   "description": "[![Circle CI](https://circleci.com/gh/deepflame/website/tree/master.svg?style=svg)](https://circleci.com/gh/deepflame/website/tree/master)",
