@@ -1,10 +1,6 @@
 main:
   - title: Home
     href: /
-  - title: Projects
-    href: /projects
-  - title: Services
-    href: /services
   - title: Blog
     href: /blog
 
