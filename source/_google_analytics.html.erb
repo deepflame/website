@@ -5,6 +5,9 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  <%# make sure to anonymize ip for GDPR -%>
-  gtag('config', '<%= data.env.GA_ID %>', { 'anonymize_ip': true });
+  <%# make sure to anonymize ip and disable remarketing for GDPR -%>
+  gtag('config', '<%= data.env.GA_ID %>', {
+    'anonymize_ip': true,
+    'allow_display_features': false
+  });
 </script>
