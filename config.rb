@@ -26,7 +26,7 @@ config[:js_dir] = 'assets/javascripts'
 config[:images_dir] = 'assets/images'
 config[:fonts_dir] = 'assets/fonts'
 
-postcss_command = './node_modules/.bin/postcss source/assets/stylesheets/tailwind.pcss --output .tmp/postcss/stylesheets/tailwind.css'
+postcss_command = './node_modules/.bin/postcss source/assets/stylesheets/tailwind.pcss --output .tmp/postcss/assets/stylesheets/tailwind.css'
 activate :external_pipeline,
   name: :postcss,
   command: build? ?  postcss_command : "#{postcss_command} --watch",
@@ -107,6 +107,7 @@ configure :build do
   activate :asset_hash
   activate :relative_assets
   ignore '**/LICENSE'
+  ignore '*.pcss'
 end
 
 # private
