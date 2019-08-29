@@ -40,7 +40,7 @@ We can start and stop the countdown with template helpers that [ember-concurrenc
 So if the task is idle it shows the 'start' button, otherwise the 'stop' button. There are also other readonly properties on the task that we could use like `isRunning`.
 Please refer to the documentation for more information.
 
-You may check out the implementation in the Twiddle below and have a look at its source.  
+You may check out the implementation in the Twiddle below or have a look directly at its [gist](https://gist.github.com/deepflame/7cfecd6b7dc80cede294e220adc626ff).  
 There are many more areas you may want to use tasks. 
 
 Have fun!
