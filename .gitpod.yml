@@ -1,6 +1,8 @@
 ports:
 - port: 4567
+  onOpen: open-preview
 - port: 35729
+  onOpen: ignore
 tasks:
 - before: rvm install "ruby-2.6.2"; bundle install; yarn install
 - command: bundle exec middleman server

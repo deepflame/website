@@ -92,9 +92,10 @@ end
 # Development-specific configuration
 configure :development do
   activate :dotenv
-  activate :livereload, apply_css_live: true
-    #js_host: gitpod? ? gitpod_host(port: 35729) : '127.0.0.1',
-    #js_port: gitpod? ? 443 : 35729
+  activate :livereload, apply_css_live: true,
+    host: '0.0.0.0',
+    js_host: gitpod? ? gitpod_host(port: 35729) : '127.0.0.1',
+    js_port: gitpod? ? 35729 : 443 unless gitpod? # disable if on Gitpod (not working, plugin does not support wss)
 end
 
 # Build-specific configuration
