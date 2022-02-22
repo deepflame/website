@@ -2,5 +2,5 @@ ports:
 - port: 4567
 - port: 35729
 tasks:
-- before: rvm use 2.4; bundle install
+- before: rvm install "ruby-2.6.2"; bundle install; yarn install
 - command: bundle exec middleman server
