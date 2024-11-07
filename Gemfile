@@ -23,4 +23,3 @@ gem "middleman-s3_sync"
 gem "middleman-cloudfront"
 
 gem 'solargraph', group: :development
-
