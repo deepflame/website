@@ -1,0 +1,131 @@
+
+body {
+  //background-color: $palette-lightergrey;
+  background-color: $palette-white;
+
+  // browser update prompt
+  .browserupgrade {
+    margin: 0.2em 0;
+    background: $palette-lightgrey;
+    color: $palette-black;
+    padding: 0.2em 0;
+  }
+
+  & > header {
+    @include container;
+    @include clearfix;
+
+    position: relative;
+    min-height: rhythm(4);
+    margin-top: rhythm(2);
+    padding-bottom: rhythm(1);
+
+    h1 {
+      @include adjust-font-size-to($font-size-bigger);
+      a {
+        color: $color-header;
+        &:hover {
+          border-bottom: 0;
+        }
+      }
+    }
+    h2 {
+      @include adjust-font-size-to($font-size-medium);
+      margin-top: rhythm(0);
+    }
+
+    nav {
+      margin-top: rhythm(1);
+
+      // desktop: position right
+      @media (min-width: 550px) {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+
+      li {
+        @include adjust-font-size-to($font-size-normal);
+        float: left; // does not add extra space like "display: inline-block"
+        margin-right: 20px;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  & > main {
+    @include container;
+
+    min-height: rhythm(30);
+    padding-top: rhythm(2.5);
+    padding-bottom: rhythm(2.5);
+  }
+
+  & > footer {
+    @include container;
+    @include clearfix;
+    @include adjust-font-size-to($font-size-small);
+
+    position: relative;
+    min-height: rhythm(3);
+    padding-top: rhythm(1.5) - 1px;
+    padding-bottom: rhythm(1.5);
+
+    line-height: rhythm(1.5);
+
+    // TODO: remove floats and use flexbox
+    .copyright {
+      float: left;
+    }
+    .links {
+      float: left;
+      margin-left: 30px;
+      a + a {
+        margin-left: 30px;
+      }
+    }
+    .social {
+      @include adjust-font-size-to($font-size-medium);
+      float: right;
+      top: rhythm(1.5) - 4px; // put it on same line
+
+      ul {
+        @include clearfix;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        max-width: 200px;
+        margin: 0 auto;
+      }
+      li + li {
+        margin-left: 30px;
+      }
+    }
+
+    .copyright,
+    .links,
+    .social {
+      @media (max-width: 720px) {
+        float: inherit;
+        margin-left: 0;
+        text-align: center;
+      }
+    }
+  }
+
+  & > header::after,
+  & > footer::before {
+    position: absolute;
+    width: calc(100% - #{$layout-container-padding * 2});
+    height: 1px;
+    background-color: $palette-lightgrey;
+  }
+  & > header::after {
+    bottom: -1px;
+  }
+  & > footer::before {
+    top: -1px;
+  }
+}

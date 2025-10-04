@@ -1,0 +1,17 @@
+
+body.privacy main {
+
+  h1 {
+    @include adjust-font-size-to($font-size-big);
+    margin-bottom: rhythm(1);
+  }
+
+  h2 {
+    font-weight: bold;
+
+    & + p {
+      margin-top: 0;
+    }
+  }
+
+}

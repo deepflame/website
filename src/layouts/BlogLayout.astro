@@ -1,0 +1,69 @@
+---
+import Layout from './Layout.astro';
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+	post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const siteUrl = "http://andreas.boehrnsen.de";
+const siteArticleUrl = new URL(post.slug, siteUrl);
+---
+
+<Layout title={post.data.title}>
+  <Fragment slot="meta-tags">
+    <!-- Google Authorship and Publisher Markup -->
+    <link rel="author" href="https://plus.google.com/+AndreasBöhrnsen"/>
+    <link rel="publisher" href="https://plus.google.com/+AndreasBöhrnsen"/>
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@deepflame">
+    <meta name="twitter:title" content={post.data.title}>
+    <meta name="twitter:description" content={post.data.description}>
+    <meta name="twitter:creator" content="@deepflame">
+    <!-- Open Graph data -->
+    <meta property="og:title" content={post.data.title}>
+    <meta property="og:type" content="article">
+    <meta property="og:url" content={siteArticleUrl.toString()}>
+    <meta property="og:description" content={post.data.description}>
+  </Fragment>
+
+  <article>
+    <h1><a href="/blog">{post.data.title}</a></h1>
+
+    <header>
+      <time pubdate datetime={post.data.date.toISOString().split('T')[0]}>
+        {post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+      </time>
+      <ul class="tags">
+        {post.data.tags.map(tag => (
+          <li><a href={`/blog/tags/${tag}`}>{tag}</a></li>
+        ))}
+      </ul>
+    </header>
+
+    <Content />
+  </article>
+
+  <section class="social">
+    Share this post on:
+    <div class="social__links">
+      <a class="btn btn-social-icon btn-facebook" href={`http://www.facebook.com/sharer.php?u=${encodeURIComponent(siteArticleUrl.toString())}&title=${encodeURIComponent(post.data.title)}`} target="_blank"><i class="fa fa-facebook"></i></a>
+      <a class="btn btn-social-icon btn-twitter" href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${encodeURIComponent(siteArticleUrl.toString())}&via=deepflame`} target="_blank"><i class="fa fa-twitter"></i></a>
+      <a class="btn btn-social-icon btn-google-plus" href={`http://plus.google.com/share?url=${encodeURIComponent(siteArticleUrl.toString())}`} target="_blank"><i class="fa fa-google-plus"></i></a>
+      <a class="btn btn-social-icon btn-linkedin" href={`http://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(siteArticleUrl.toString())}`} target="_blank"><i class="fa fa-linkedin"></i></a>
+    </div>
+  </section>
+
+  <!-- Previous/Next article links will be implemented later -->
+  <ul class="pager">
+    <li class="previous"></li>
+    <li class="next"></li>
+  </ul>
+
+  <!-- Disqus was disabled in the original project -->
+  <!-- <div id="disqus_thread"></div> -->
+</Layout>

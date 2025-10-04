@@ -1,0 +1,79 @@
+---
+import '../styles/global.css';
+
+const navigation = {
+  main: [
+    { title: "Home", href: "/" },
+    { title: "Blog", href: "/blog" },
+  ],
+  sub: [
+    { title: "Imprint", href: "/imprint.html" },
+    { title: "Privacy", href: "/privacy.html" },
+  ],
+  social: [
+    { icon: "twitter", href: "https://twitter.com/deepflame" },
+    { icon: "github", href: "https://github.com/deepflame" },
+    { icon: "linkedin", href: "https://de.linkedin.com/in/andreasboehrnsen" },
+  ],
+};
+
+export interface Props {
+	title?: string;
+}
+
+const { title = "Andreas Böhrnsen - Consulting and Development" } = Astro.props;
+---
+
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{title}</title>
+    <meta name="description" content="IT consultant and full-stack web engineer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Andreas Böhrnsen">
+    <slot name="meta-tags" />
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/blog/feed.xml">
+
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+  </head>
+  <body>
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <header>
+      <h1><a href="/">Andreas Böhrnsen</a></h1>
+      <h2>Consulting and Development</h2>
+      <nav>
+        <ul>
+          {navigation.main.map(n => (
+            <li><a href={n.href}>{n.title}</a></li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <section class="copyright">&copy; Andreas Böhrnsen 2013 - {new Date().getFullYear()}</section>
+      <section class="links">
+        {navigation.sub.map(n => (
+          <a href={n.href}>{n.title}</a>
+        ))}
+      </section>
+      <section class="social">
+        <ul>
+          {navigation.social.map(n => (
+            <li><a href={n.href}><i class={`fa fa-${n.icon}`}></i></a></li>
+          ))}
+        </ul>
+      </section>
+    </footer>
+
+    <!-- I will add the scripts later -->
+  </body>
+</html>
