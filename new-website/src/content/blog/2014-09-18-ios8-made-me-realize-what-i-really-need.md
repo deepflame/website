@@ -1,7 +1,7 @@
 ---
 title: iOS8 made me realize what I really need
-date: 2014-09-18 15:04 UTC
-tags: ios, upgrade
+date: 2014-09-18
+tags: ["ios", "upgrade"]
 published: true
 ---
 

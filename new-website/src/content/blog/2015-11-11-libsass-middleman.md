@@ -1,7 +1,7 @@
 ---
 title: Using libSass in Middleman
-date: 2015-11-11 08:39 UTC
-tags: blog, middleman, sass, ruby
+date: 2015-11-11
+tags: ["blog", "middleman", "sass", "ruby"]
 ---
 
 After my long evening trying to upload the last blog post I wanted to make the livereload experience a bit better and tried to integrate libSass into Middleman.

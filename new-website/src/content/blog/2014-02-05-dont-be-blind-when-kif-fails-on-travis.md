@@ -1,8 +1,8 @@
 ---
 title: Don't be blind when KIF fails on Travis
 author: Andreas Böhrnsen
-date: 2014-02-05 18:16 UTC
-tags: ios, testing, travisci, aws
+date: 2014-02-05
+tags: ["ios", "testing", "travisci", "aws"]
 published: true
 ---
 

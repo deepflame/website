@@ -1,7 +1,7 @@
 ---
 title: Testing multiple iOS platforms on Travis
-date: 2014-02-02 14:38 UTC
-tags: ios, testing, travisci
+date: 2014-02-02
+tags: ["ios", "testing", "travisci"]
 ---
 
 Ever wanted to test automatically on multiple iOS platforms and devices on Travis CI at the same time?

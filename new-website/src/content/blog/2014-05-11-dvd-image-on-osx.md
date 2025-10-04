@@ -1,7 +1,7 @@
 ---
 title: Creating a CD/DVD Image on the OSX command line
-date: 2014-05-11 12:51 UTC
-tags: osx, commandline, files
+date: 2014-05-11
+tags: ["osx", "commandline", "files"]
 ---
 
 Yesterday I wanted to install Windows 7 in VirtualBox on OSX. I did not have an image of the installation medium, so I used the physical disk I had and put it into the external usb drive.

@@ -1,9 +1,7 @@
 ---
-
 title: Clear Rails cache on deployment
-date: 2019-08-27 08:55 UTC
-tags: rails, caching, deployment, devops, heroku
-
+date: 2019-08-27
+tags: ["rails", "caching", "deployment", "devops", "heroku"]
 ---
 
 When you use Rails view caching and change the html the caching does not know about it and you need to invalidate the cache manually. Here is how to do it before every deployment. READMORE

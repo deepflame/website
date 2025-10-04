@@ -1,7 +1,7 @@
 ---
 title: Handling small files - Lessons learned
-date: 2014-03-06 17:35 UTC
-tags: linux, sysadm, files
+date: 2014-03-06
+tags: ["linux", "sysadm", "files"]
 published: true
 ---
 

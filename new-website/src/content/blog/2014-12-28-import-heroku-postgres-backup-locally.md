@@ -1,8 +1,8 @@
 ---
 title: Import Heroku Postgres backup locally
-date: 2014-12-28 12:07 UTC
+date: 2014-12-28
 update: 2015-11-11
-tags: postgresql, heroku
+tags: ["postgresql", "heroku"]
 ---
 
 Some days ago I accidentally dropped my development database and lost all test data. Not having any seed files I just dumped the production data from Heroku and imported it locally.

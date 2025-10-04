@@ -1,7 +1,7 @@
 ---
 title: Automated attachment archiving with Google Apps
-date: 2014-10-06 08:53 UTC
-tags: google, appscript, gmail, drive, javascript
+date: 2014-10-06
+tags: ["google", "appscript", "gmail", "drive", "javascript"]
 ---
 
 For a long time I have been looking for accounting software or a small ERP system to run my business. It should have some basic functionality like storing all bills and invoices. We are using Google Apps for mail and documents, so it would be great if the software would integrate here as well.

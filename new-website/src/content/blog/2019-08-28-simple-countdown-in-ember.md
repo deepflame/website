@@ -1,9 +1,7 @@
 ---
-
 title: Simple Countdown using Ember-concurrency
-date: 2019-08-28 08:41 UTC
-tags: emberjs, ember-concurrency
-
+date: 2019-08-28
+tags: ["emberjs", "ember-concurrency"]
 ---
 
 Ever wanted to automatically advance progress in Ember like a slideshow, a countdown or... ? Here is how we can do it with ember-concurrency. READMORE

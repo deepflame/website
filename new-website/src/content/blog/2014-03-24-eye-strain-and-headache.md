@@ -1,7 +1,7 @@
 ---
 title: Eye Strain and Headache
-date: 2014-03-24 17:03 UTC
-tags: health, ergonomics, displays
+date: 2014-03-24
+tags: ["health", "ergonomics", "displays"]
 published: true
 ---
 

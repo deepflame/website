@@ -1,7 +1,7 @@
 ---
 title: "Git: push subdirectory to Heroku"
-date: 2014-12-30 11:28 UTC
-tags: git, heroku
+date: 2014-12-30
+tags: ["git", "heroku"]
 published: true
 ---
 

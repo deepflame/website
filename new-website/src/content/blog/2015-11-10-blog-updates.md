@@ -1,7 +1,7 @@
 ---
 title: No Blog updates?
-tags: blog, middleman
-published: false
+date: 2015-11-10
+tags: ["blog", "middleman"]
 ---
 
 What happened? There are no recent posts!

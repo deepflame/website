@@ -1,9 +1,7 @@
 ---
-
 title: Fix rendering issues by flushing Rails' cache
-date: 2019-08-21 19:46 UTC
-tags: rails, caching
-
+date: 2019-08-21
+tags: ["rails", "caching"]
 ---
 
 When you use Rails caching to optimize your view layer in production you might run into rendering issues. "What, I thought I changed this HTML and it worked for me in development!"

@@ -1,7 +1,7 @@
 ---
 title: Serialize multiple attributes into one column - custom solution
-date: 2019-04-23 07:30 UTC
-tags: ruby, rails, json
+date: 2019-04-23
+tags: ["ruby", "rails", "json"]
 ---
 
 Ever felt you wanted to save multiple entries into one database column in Rails? This is probbly the case when thinking about user preferences or an address field.
