@@ -1,0 +1,41 @@
+
+body.index main {
+
+  padding-top: rhythm(2.0);
+
+  section {
+    margin: rhythm(2) 0;
+
+    h2 {
+      @include adjust-font-size-to($font-size-big);
+      padding-bottom: rhythm(0.5);
+    }
+  }
+
+  .project {
+    float: left;
+    width: 45%;
+    margin: rhythm(1.5) 0;
+
+    & + .project {
+      margin-left: 10%;
+    }
+  }
+
+  .contact {
+    padding-top: rhythm(2); // like footer distance
+    text-align: center;
+
+    .mail {
+      @include adjust-font-size-to($font-size-big);
+      padding: 10px 25px;
+      border: solid 1px;
+      border-radius: 20px;
+
+      &:after {
+        width: 0; // do not show underline
+      }
+    }
+  }
+
+}

@@ -1,0 +1,28 @@
+a {
+  position: relative;
+  color: $color-link;
+  text-decoration: none;
+  transition: color .1s;
+
+  // not for touch devices (mobile safari has double tap)
+  @media (pointer: fine) {
+    &:after {
+      position: absolute;
+      height: 1px;
+      width: 0;
+      bottom: -4px;
+      left: 0;
+      content: '';
+      background-color: $color-link--hover;
+      transition: width .1s;
+    }
+
+    &:hover {
+      color: $color-link--hover;
+
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+}

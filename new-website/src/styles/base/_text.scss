@@ -1,0 +1,73 @@
+
+// text
+html {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: $color-text;
+}
+
+// headers
+h1, h2, h3, h4, h5, h6 {
+  color: $color-header;
+  margin: 0;
+  font-size: 100%;
+  font-weight: normal;
+}
+
+// text selection hightlight
+::selection {
+  color: $color-selection-text;
+  background: $color-selection-background;
+  text-shadow: none;
+}
+
+p {
+  margin: rhythm(1) 0;
+}
+
+h1 {
+  @include adjust-font-size-to($font-size-big);
+}
+
+h2 {
+  @include adjust-font-size-to($font-size-medium);
+}
+
+h3 {
+  @include adjust-font-size-to($font-size-normal);
+}
+
+h2 + p, h3 + p {
+  margin-top: rhythm(0.5);
+}
+h2, h3 {
+  margin-top: rhythm(1.5);
+}
+
+
+small {
+  @include adjust-font-size-to($font-size-small);
+}
+
+strong {
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+pre {
+  white-space: pre; // CSS2
+  white-space: pre-wrap; // CSS 2.1
+  white-space: pre-line; // CSS 3 (and 2.1 as well, actually)
+  word-wrap: break-word; // IE
+}
+/* standardize any monospaced elements */
+pre, code, kbd, samp {
+  font-family: monospace, sans-serif;
+}
+
+/* Make sure sup and sub don't mess with your line-heights http://gist.github.com/413930 */
+sub, sup {font-size: 75%; line-height: 0; position: relative;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}

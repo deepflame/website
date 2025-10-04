@@ -13,5 +13,10 @@
     "@tailwindcss/vite": "^4.1.14",
     "astro": "^5.14.1",
     "tailwindcss": "^4.1.14"
+  },
+  "devDependencies": {
+    "font-awesome": "^4.7.0",
+    "modularscale-sass": "^3.0.10",
+    "sass": "^1.93.2"
   }
 }

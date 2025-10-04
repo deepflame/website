@@ -1,0 +1,66 @@
+
+// additinal normalizations / opinionated defaults
+
+
+// inputs
+
+// hand cursor on label
+label {
+  cursor: pointer;
+}
+
+// align input text properly
+input, select {
+  vertical-align: middle;
+}
+input[type="radio"] {
+  vertical-align: text-bottom;
+}
+input[type="checkbox"] {
+  vertical-align: bottom;
+}
+
+// allow only vertical resizing of textareas.
+textarea {
+  resize: vertical;
+}
+
+// lists
+
+ul {
+  @include reset-box-model;
+  list-style-type: none; // no bullets by default (e.g. used in navigation)
+}
+
+// images
+
+/* Responsive images and other embedded objects */
+/* if you don't have full control over `img` tags (if you have to overcome attributes), consider adding height: auto */
+img,
+svg,
+object,
+embed {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/*
+Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+In fact, it *will* cause problems with Google Maps' controls at small size.
+If this is the case for you, try uncommenting the following:
+
+#map img {
+max-width: none;
+}
+ */
+
+// remove the gap between audio, canvas, iframes, images, videos and the bottom
+// of their containers: https://github.com/h5bp/html5-boilerplate/issues/440
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
