@@ -1,16 +1,30 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <img src="/hero-1400x600.jpg" alt="Hero Image">
+
+  <section class="about">
+    <h2>Hi there!</h2>
+
+    <p>
+      I am a people-oriented software engineer and consultant with around {new Date().getFullYear() - 2003} years of experience in the industry.
+      I had the opportunity to work in different areas of software companies with Enterprise clients and Startups.
+    </p><p>
+      My expertise ranges from development, customer support, professional services, pre-sales to technical leadership.
+    </p><p>
+      With this broad experience I currently work as a DevOps engineer, helping companies to deploy faster and developers to be more productive.
+    </p><p>
+      In my spare time I enjoy being with my wife and 4 kids, doing photography, leading a small group in church, playing the guitar and hacking on my side project when time permits.
+    </p><p>
+      If you think we would be a good fit and that I could help you to bring your business forward please don’t hesitate to contact me. I would be glad to contribute.
+    </p>
+  </section>
+
+  <section class="contact">
+     <a href="mailto:andreas@frontrunner.io?subject=Hi!" class="mail">
+        <i class="fa fa-envelope"></i> Get in touch
+     </a>
+  </section>
+</Layout>

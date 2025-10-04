@@ -1,19 +1,19 @@
 ---
 title: Using libSass in Middleman
 date: 2015-11-11
-tags: ["blog", "middleman", "sass", "ruby"]
+tags: [blog, middleman, sass, ruby]
 ---
 
 After my long evening trying to upload the last blog post I wanted to make the livereload experience a bit better and tried to integrate libSass into Middleman.
 Here is how.
 
-READMORE
+
 
 Digging into the Middleman gem I found that the 'main' gem is just a package of other gems. Running `bundle viz` I got the following image:
 
-<% link_to "2015-11-11-libsass-middleman/gem_graph.svg", target: '_blank' do %>
-  <%= image_tag '2015-11-11-libsass-middleman/gem_graph.svg' %>
-<% end %>
+<a href="/blog/2015-11-11-libsass-middleman/gem_graph.svg" target="_blank">
+  <img src="/blog/2015-11-11-libsass-middleman/gem_graph.svg" alt="Gem graph">
+</a>
 (click to enlarge)
 
 The same can be seen in the source code. It [only requires middleman-core](https://github.com/middleman/middleman/blob/v3-stable/middleman/lib/middleman.rb) and [includes a bunch of gems in the spec file](https://github.com/middleman/middleman/blob/v3-stable/middleman/middleman.gemspec):
