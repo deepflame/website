@@ -1,34 +1,46 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
 
-const allPosts = await getCollection('blog');
-const sortedPosts = allPosts.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf());
+const allPosts = await getCollection("blog");
+const sortedPosts = allPosts.sort(
+  (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
+);
 ---
 
 <Layout title="Blog - Andreas Böhrnsen">
-  <h1>Blog</h1>
-
-  <ul>
-    {sortedPosts.map(post => {
-      const summary = post.body.split('READMORE')[0];
+  {
+    sortedPosts.map((post) => {
+      const summary = post.body.split("READMORE")[0];
       return (
-        <li>
-          <h2><a href={`/blog/${post.slug}`}>{post.data.title}</a></h2>
-          <p>
-            <time pubdate datetime={post.data.date.toISOString().split('T')[0]}>
-              {post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+        <article>
+          <h1>
+            <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+          </h1>
+
+          <header>
+            <time datetime={post.data.date.toISOString().split("T")[0]}>
+              {post.data.date.toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })}
             </time>
-          </p>
-          <ul class="tags">
-            {post.data.tags.map(tag => (
-              <li><a href={`/blog/tags/${tag}`}>{tag}</a></li>
-            ))}
-          </ul>
-          <div set:html={summary} />
-          <a href={`/blog/${post.slug}`}>Read more...</a>
-        </li>
-      )
-    })}
-  </ul>
+            <ul class="tags">
+              {post.data.tags.map((tag) => (
+                <li>
+                  <a href={`/blog/tags/${tag}`}>{tag}</a>
+                </li>
+              ))}
+            </ul>
+          </header>
+
+          <main>
+            {summary}
+            <a href={`/blog/${post.slug}`}>Read more...</a>
+          </main>
+        </article>
+      );
+    })
+  }
 </Layout>

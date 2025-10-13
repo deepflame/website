@@ -35,7 +35,7 @@ const siteArticleUrl = new URL(post.slug, siteUrl);
     <h1><a href="/blog">{post.data.title}</a></h1>
 
     <header>
-      <time pubdate datetime={post.data.date.toISOString().split('T')[0]}>
+      <time datetime={post.data.date.toISOString().split('T')[0]}>
         {post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
       </time>
       <ul class="tags">
