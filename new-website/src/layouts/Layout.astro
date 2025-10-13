@@ -20,9 +20,59 @@ const navigation = {
 
 export interface Props {
 	title?: string;
+	bodyClass?: string;
 }
 
-const { title = "Andreas Böhrnsen - Consulting and Development" } = Astro.props;
+const { title = "Andreas Böhrnsen - Consulting and Development", bodyClass } = Astro.props;
+
+// Generate body css classes based on the current path
+// Translated from Middleman's page_classes function
+const getPageClasses = (path?: string, options: { numericPrefix?: string } = {}) => {
+	if (bodyClass) return bodyClass;
+	
+	const currentPath = path || Astro.url.pathname;
+	const numericPrefix = options.numericPrefix || 'x';
+	
+	// Strip leading slash first
+	let processedPath = currentPath.replace(/^\//, '');
+	
+	// Add index file if path ends with '/' 
+	if (processedPath.endsWith('/')) {
+		processedPath += 'index.html';
+	}
+	// For paths without file extensions and not ending with '/', assume they're index pages
+	// This handles Astro's routing where /blog serves blog/index.astro
+	else if (processedPath && !processedPath.includes('.')) {
+		processedPath += '/index.html';
+	}
+	// Handle empty path (root)
+	else if (processedPath === '') {
+		processedPath = 'index.html';
+	}
+	
+	// Split path and remove file extension
+	const parts = processedPath.split('.')[0].split('/');
+	
+	// Generate hierarchical classes
+	const classes = new Set<string>();
+	parts.forEach((_: string, i: number) => {
+		const classPart = parts.slice(0, i + 1).join('_');
+		classes.add(classPart);
+	});
+	
+	// Process each class name
+	return Array.from(classes).map(c => {
+		// Replace weird class name characters with hyphens
+		c = c.replace(/[^a-zA-Z0-9\-_]/g, '-');
+		
+		// Class names can't start with a digit
+		if (/^\d/.test(c)) {
+			c = `${numericPrefix}${c}`;
+		}
+		
+		return c;
+	}).join(' ');
+};
 ---
 
 <!doctype html>
@@ -40,7 +90,7 @@ const { title = "Andreas Böhrnsen - Consulting and Development" } = Astro.props
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
   </head>
-  <body>
+  <body class={getPageClasses()}>
     <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
