@@ -1,6 +1,6 @@
 
 body.blog > main {
-
+  
   header {
     @include adjust-font-size-to($font-size-small);
     @include clearfix;
