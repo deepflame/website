@@ -1,10 +1,10 @@
 
 body.blog > main {
-  article {
-    padding-bottom: rhythm(3) - 1px;
-    border-bottom: solid 1px $palette-lightgrey;
-    margin-bottom: rhythm(1);
-  }
+  //article {
+  //  padding-bottom: rhythm(3) - 1px;
+  //  border-bottom: solid 1px $palette-lightgrey;
+  //  margin-bottom: rhythm(1);
+  //}
 
   // like Youtube embeds
   iframe {
@@ -13,7 +13,7 @@ body.blog > main {
   }
 
   // code highlighting
-  pre.highlight {
+  pre.astro-code {
     @include adjust-font-size-to($font-size-normal);
     margin-left: -1em;
     padding: rhythm(0.5) 1em;
