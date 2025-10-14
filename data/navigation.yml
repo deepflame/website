@@ -6,9 +6,9 @@ main:
 
 sub:
   - title: Imprint
-    href: /imprint.html
+    href: /imprint
   - title: Privacy
-    href: /privacy.html
+    href: /privacy
 
 social:
   - icon: twitter

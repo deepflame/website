@@ -6,6 +6,7 @@ import { remarkRemoveReadmore } from './src/plugins/remark-remove-readmore.mjs';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'http://andreas.boehrnsen.de',
   markdown: {
     remarkPlugins: [remarkRemoveReadmore],
     shikiConfig: {

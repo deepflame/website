@@ -1,24 +1,9 @@
 ---
 import '../styles/global.css';
 import '../styles/all.css.scss';
+import { navigation } from '../data/navigation';
 
-const navigation = {
-  main: [
-    { title: "Home", href: "/" },
-    { title: "Blog", href: "/blog" },
-  ],
-  sub: [
-    { title: "Imprint", href: "/imprint.html" },
-    { title: "Privacy", href: "/privacy.html" },
-  ],
-  social: [
-    { icon: "twitter", href: "https://twitter.com/deepflame" },
-    { icon: "github", href: "https://github.com/deepflame" },
-    { icon: "linkedin", href: "https://de.linkedin.com/in/andreasboehrnsen" },
-  ],
-};
-
-export interface Props {
+interface Props {
 	title?: string;
 	bodyClass?: string;
 }
@@ -76,10 +61,9 @@ const getPageClasses = (path?: string, options: { numericPrefix?: string } = {})
 ---
 
 <!doctype html>
-<html class="no-js" lang="">
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{title}</title>
     <meta name="description" content="IT consultant and full-stack web engineer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -91,10 +75,6 @@ const getPageClasses = (path?: string, options: { numericPrefix?: string } = {})
     <!-- Place favicon.ico in the root directory -->
   </head>
   <body class={getPageClasses()}>
-    <!--[if lt IE 8]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
     <header>
       <h1><a href="/">Andreas Böhrnsen</a></h1>
       <h2>Consulting and Development</h2>

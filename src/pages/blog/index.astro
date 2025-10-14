@@ -4,14 +4,14 @@ import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("blog");
 const sortedPosts = allPosts.sort(
-  (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 ---
 
 <Layout title="Blog - Andreas Böhrnsen">
   {
     sortedPosts.map((post) => {
-      const summary = post.body.split("READMORE")[0];
+      const summary = post.data.description || post.body.split("READMORE")[0].trim();
       return (
         <article>
           <h1>
@@ -36,7 +36,7 @@ const sortedPosts = allPosts.sort(
           </header>
 
           <main>
-            {summary}
+            <p>{summary}</p>
             <a href={`/blog/${post.slug}`}>Read more...</a>
           </main>
         </article>

@@ -2,7 +2,7 @@
 import Layout from './Layout.astro';
 import type { CollectionEntry } from 'astro:content';
 
-export interface Props {
+interface Props {
 	post: CollectionEntry<'blog'>;
 	previousPost?: CollectionEntry<'blog'>;
 	nextPost?: CollectionEntry<'blog'>;
@@ -11,8 +11,8 @@ export interface Props {
 const { post, previousPost, nextPost } = Astro.props;
 const { Content } = await post.render();
 
-const siteUrl = "http://andreas.boehrnsen.de";
-const siteArticleUrl = new URL(post.slug, siteUrl);
+const siteUrl = Astro.site?.toString() || "http://andreas.boehrnsen.de";
+const siteArticleUrl = new URL(`/blog/${post.slug}`, siteUrl);
 ---
 
 <Layout title={post.data.title}>

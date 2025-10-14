@@ -3,14 +3,18 @@ import { getCollection } from 'astro:content';
 
 export async function GET(context) {
   const blog = await getCollection('blog');
+  const sortedPosts = blog.sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+  );
+  
   return rss({
     title: 'Andreas Böhrnsen',
     description: 'Consultant & Developer',
-    site: 'http://andreas.boehrnsen.de',
-    items: blog.map((post) => ({
+    site: context.site,
+    items: sortedPosts.map((post) => ({
       title: post.data.title,
       pubDate: post.data.date,
-      description: post.body.split('READMORE')[0],
+      description: post.data.description || post.body.split('READMORE')[0].trim(),
       link: `/blog/${post.slug}/`,
     })),
     customData: `<language>en-us</language>`,
