@@ -4,9 +4,11 @@ import type { CollectionEntry } from 'astro:content';
 
 export interface Props {
 	post: CollectionEntry<'blog'>;
+	previousPost?: CollectionEntry<'blog'>;
+	nextPost?: CollectionEntry<'blog'>;
 }
 
-const { post } = Astro.props;
+const { post, previousPost, nextPost } = Astro.props;
 const { Content } = await post.render();
 
 const siteUrl = "http://andreas.boehrnsen.de";
@@ -58,10 +60,21 @@ const siteArticleUrl = new URL(post.slug, siteUrl);
     </div>
   </section>
 
-  <!-- Previous/Next article links will be implemented later -->
   <ul class="pager">
-    <li class="previous"></li>
-    <li class="next"></li>
+    <li class="previous">
+      {previousPost ? (
+        <a href={`/blog/${previousPost.slug}`} title={previousPost.data.title}>Previous</a>
+      ) : (
+        <span>Previous</span>
+      )}
+    </li>
+    <li class="next">
+      {nextPost ? (
+        <a href={`/blog/${nextPost.slug}`} title={nextPost.data.title}>Next</a>
+      ) : (
+        <span>Next</span>
+      )}
+    </li>
   </ul>
 
   <!-- Disqus was disabled in the original project -->
