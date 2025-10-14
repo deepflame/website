@@ -1,26 +1,22 @@
 {
+  "name": "new-website",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "start": "bundle exec middleman server",
-    "build": "bundle exec middleman build",
-    "post":  "bundle exec middleman article "
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "name": "website",
-  "description": "[![Circle CI](https://circleci.com/gh/deepflame/website/tree/master.svg?style=svg)](https://circleci.com/gh/deepflame/website/tree/master)",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/deepflame/website.git"
+  "dependencies": {
+    "@astrojs/rss": "^4.0.12",
+    "@tailwindcss/vite": "^4.1.14",
+    "astro": "^5.14.1",
+    "tailwindcss": "^4.1.14"
   },
-  "author": "Andreas Böhrnsen",
-  "homepage": "https://github.com/deepflame/website#readme",
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^1.2.0",
-    "autoprefixer": "^9.6.1",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.4.1",
-    "modernizr": "^3.7.1",
-    "modularscale-sass": "^3.0.8",
-    "postcss-cli": "^6.1.3",
-    "responsive-nav": "^1.0.39",
-    "tailwindcss": "^1.1.1"
+    "modularscale-sass": "^3.0.10",
+    "sass": "^1.93.2"
   }
 }
