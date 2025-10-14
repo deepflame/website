@@ -7,7 +7,7 @@ tags: [blog, middleman, sass, ruby]
 After my long evening trying to upload the last blog post I wanted to make the livereload experience a bit better and tried to integrate libSass into Middleman.
 Here is how.
 
-
+READMORE
 
 Digging into the Middleman gem I found that the 'main' gem is just a package of other gems. Running `bundle viz` I got the following image:
 
