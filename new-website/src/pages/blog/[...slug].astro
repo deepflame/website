@@ -9,8 +9,8 @@ export async function getStaticPaths() {
   );
   
   return sortedPosts.map((entry, index) => {
-    const previousPost = index > 0 ? sortedPosts[index - 1] : undefined;
-    const nextPost = index < sortedPosts.length - 1 ? sortedPosts[index + 1] : undefined;
+    const nextPost = index > 0 ? sortedPosts[index - 1] : undefined; // next post is the newer one
+    const previousPost = index < sortedPosts.length - 1 ? sortedPosts[index + 1] : undefined; // previous post is the older one
     
     return {
       params: { slug: entry.slug },

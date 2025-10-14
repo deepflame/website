@@ -63,16 +63,16 @@ const siteArticleUrl = new URL(post.slug, siteUrl);
   <ul class="pager">
     <li class="previous">
       {previousPost ? (
-        <a href={`/blog/${previousPost.slug}`} title={previousPost.data.title}>Previous</a>
+        <a href={`/blog/${previousPost.slug}`} title={previousPost.data.title}>Previous post</a>
       ) : (
-        <span>Previous</span>
+        <span>No older post</span>
       )}
     </li>
     <li class="next">
       {nextPost ? (
-        <a href={`/blog/${nextPost.slug}`} title={nextPost.data.title}>Next</a>
+        <a href={`/blog/${nextPost.slug}`} title={nextPost.data.title}>Next post</a>
       ) : (
-        <span>Next</span>
+        <span>No newer post</span>
       )}
     </li>
   </ul>
