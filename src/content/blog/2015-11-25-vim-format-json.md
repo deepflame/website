@@ -1,7 +1,7 @@
 ---
 title: Easily format JSON in Vim
-date: 2015-11-25 09:33 UTC
-tags: vim, json, tooling
+date: 2015-11-25
+tags: [vim, json, tooling]
 ---
 
 Nowadays we work a lot with JSON data. I had an API documentation with a lot of JSON samples. However the samples were all unformatted. So I tried to find an easy way to format them inside Vim.
