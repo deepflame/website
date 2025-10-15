@@ -1,9 +1,0 @@
-<header>
-  <time pubdate datetime="<%= article.date.strftime('%Y-%M-%d') %>"><%= article.date.strftime('%b. %e %Y') %></time>
-  <ul class="tags">
-    <% article.tags.each do |tag| %>
-      <li><%= link_to tag, tag_path(tag) %></li>
-    <% end %>
-  </ul>
-</header>
-

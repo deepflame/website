@@ -1,0 +1,110 @@
+---
+import '../styles/global.css';
+import '../styles/all.css.scss';
+import { navigation } from '../data/navigation';
+
+interface Props {
+	title?: string;
+	bodyClass?: string;
+}
+
+const { title = "Andreas Böhrnsen - Consulting and Development", bodyClass } = Astro.props;
+
+// Generate body css classes based on the current path
+// Translated from Middleman's page_classes function
+const getPageClasses = (path?: string, options: { numericPrefix?: string } = {}) => {
+	if (bodyClass) return bodyClass;
+	
+	const currentPath = path || Astro.url.pathname;
+	const numericPrefix = options.numericPrefix || 'x';
+	
+	// Strip leading slash first
+	let processedPath = currentPath.replace(/^\//, '');
+	
+	// Add index file if path ends with '/' 
+	if (processedPath.endsWith('/')) {
+		processedPath += 'index.html';
+	}
+	// For paths without file extensions and not ending with '/', assume they're index pages
+	// This handles Astro's routing where /blog serves blog/index.astro
+	else if (processedPath && !processedPath.includes('.')) {
+		processedPath += '/index.html';
+	}
+	// Handle empty path (root)
+	else if (processedPath === '') {
+		processedPath = 'index.html';
+	}
+	
+	// Split path and remove file extension
+	const parts = processedPath.split('.')[0].split('/');
+	
+	// Generate hierarchical classes
+	const classes = new Set<string>();
+	parts.forEach((_: string, i: number) => {
+		const classPart = parts.slice(0, i + 1).join('_');
+		classes.add(classPart);
+	});
+	
+	// Process each class name
+	return Array.from(classes).map(c => {
+		// Replace weird class name characters with hyphens
+		c = c.replace(/[^a-zA-Z0-9\-_]/g, '-');
+		
+		// Class names can't start with a digit
+		if (/^\d/.test(c)) {
+			c = `${numericPrefix}${c}`;
+		}
+		
+		return c;
+	}).join(' ');
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{title}</title>
+    <meta name="description" content="IT consultant and full-stack web engineer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Andreas Böhrnsen">
+    <slot name="meta-tags" />
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/blog/feed.xml">
+
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+  </head>
+  <body class={getPageClasses()}>
+    <header>
+      <h1><a href="/">Andreas Böhrnsen</a></h1>
+      <h2>Consulting and Development</h2>
+      <nav>
+        <ul>
+          {navigation.main.map(n => (
+            <li><a href={n.href}>{n.title}</a></li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <section class="copyright">&copy; Andreas Böhrnsen 2013 - {new Date().getFullYear()}</section>
+      <section class="links">
+        {navigation.sub.map(n => (
+          <a href={n.href}>{n.title}</a>
+        ))}
+      </section>
+      <section class="social">
+        <ul>
+          {navigation.social.map(n => (
+            <li><a href={n.href}><i class={`fa fa-${n.icon}`}></i></a></li>
+          ))}
+        </ul>
+      </section>
+    </footer>
+
+    <!-- I will add the scripts later -->
+  </body>
+</html>

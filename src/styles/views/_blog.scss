@@ -1,0 +1,40 @@
+
+body.blog > main {
+  
+  header {
+    @include adjust-font-size-to($font-size-small);
+    @include clearfix;
+
+    margin-bottom: rhythm(0.5);
+
+    time {
+      float: left;
+    }
+
+    ul {
+      @include clearfix;
+      float: right;
+
+      li {
+        display: block;
+        float:left;
+
+        & + li:before {
+          content: '·';
+          margin: 3px;
+        }
+      }
+    }
+  }
+
+  h1 a {
+    color: $color-header;
+    &:hover {
+      color: $color-link--hover;
+    }
+  }
+
+  code {
+    font-family: Consolas, monospace;
+  }
+}
