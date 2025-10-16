@@ -1,16 +1,69 @@
 # Personal Website
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io#https://github.com/deepflame/website/master)  
-[![Circle CI](https://circleci.com/gh/deepflame/website/tree/master.svg?style=svg)](https://circleci.com/gh/deepflame/website/tree/master)
+Personal website and blog built with [Astro](https://astro.build)
 
-Crafted using
+## 🚀 Tech Stack
 
-- Middleman
-- Sass
-- Font Awesome
+- **[Astro](https://astro.build)** - Modern web framework for content-focused websites
+- **[Tailwind CSS](https://tailwindcss.com)** - Utility-first CSS framework
+- **TypeScript** - Type-safe JavaScript
+- **Sass** - CSS preprocessor for enhanced styling
+- **Font Awesome** - Icon library
+- **RSS** - Blog feed support
 
-Deployed on S3 with Cloudfront caching.
+## 📋 Prerequisites
 
-## License
+- Node.js (v18 or higher recommended)
+- npm or yarn
 
-[MIT](http://opensource.org/licenses/MIT) © [Andeas Böhrnsen](http://andreas.boehrnsen.de)
+## 🛠️ Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The site will be available at `http://localhost:4321`
+
+## 🏗️ Build
+
+Build the site for production:
+
+```bash
+npm run build
+```
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## 📁 Project Structure
+
+```
+/
+├── public/           # Static assets
+├── src/
+│   ├── components/   # Reusable Astro components
+│   ├── content/      # Content collections (blog posts, etc.)
+│   ├── data/         # Site data (navigation, etc.)
+│   ├── layouts/      # Page layouts
+│   ├── pages/        # Page routes
+│   ├── plugins/      # Custom Astro plugins
+│   └── styles/       # Global styles
+├── astro.config.mjs  # Astro configuration
+├── tailwind.config.mjs # Tailwind CSS configuration
+└── tsconfig.json     # TypeScript configuration
+```
+
+## 📝 License
+
+[MIT](http://opensource.org/licenses/MIT) © [Andreas Böhrnsen](http://andreas.boehrnsen.de)
