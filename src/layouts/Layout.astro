@@ -8,7 +8,7 @@ interface Props {
 	bodyClass?: string;
 }
 
-const { title = "Andreas Böhrnsen - Consulting and Development", bodyClass } = Astro.props;
+const { title = "Andreas Böhrnsen - Secure Delivery and Automation", bodyClass } = Astro.props;
 
 // Generate body css classes based on the current path
 // Translated from Middleman's page_classes function
@@ -77,7 +77,7 @@ const getPageClasses = (path?: string, options: { numericPrefix?: string } = {})
   <body class={getPageClasses()}>
     <header>
       <h1><a href="/">Andreas Böhrnsen</a></h1>
-      <h2>Consulting and Development</h2>
+      <h2>Secure Delivery and Automation</h2>
       <nav>
         <ul>
           {navigation.main.map(n => (
