@@ -13,7 +13,7 @@ export async function getStaticPaths() {
     const previousPost = index < sortedPosts.length - 1 ? sortedPosts[index + 1] : undefined; // previous post is the older one
     
     return {
-      params: { slug: entry.slug },
+      params: { slug: entry.id },
       props: { post: entry, previousPost, nextPost },
     };
   });
