@@ -15,7 +15,7 @@ const sortedPosts = allPosts.sort(
       return (
         <article>
           <h1>
-            <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+            <a href={`/blog/${post.id}`}>{post.data.title}</a>
           </h1>
 
           <header>
@@ -37,7 +37,7 @@ const sortedPosts = allPosts.sort(
 
           <main>
             <p>{summary}</p>
-            <a href={`/blog/${post.slug}`}>Read more...</a>
+            <a href={`/blog/${post.id}`}>Read more...</a>
           </main>
         </article>
       );
