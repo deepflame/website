@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 import '../styles/all.css.scss';
+import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import { navigation } from '../data/navigation';
 
 interface Props {
@@ -73,6 +75,7 @@ const getPageClasses = (path?: string, options: { numericPrefix?: string } = {})
 
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
+    <Analytics />
   </head>
   <body class={getPageClasses()}>
     <header>
@@ -104,5 +107,7 @@ const getPageClasses = (path?: string, options: { numericPrefix?: string } = {})
         </ul>
       </section>
     </footer>
+
+    <SpeedInsights />
   </body>
 </html>
